@@ -1,4 +1,5 @@
 extends layouts/main
+include mixins/mapBlock
 
 block content
     .home-container
@@ -8,7 +9,7 @@ block content
             h3 김덕화
         .home__contact
             .home__contact__map
-                p 지도
+                +mapBlock
             .home__contact__company
                 p 솔톤 세무사무소
             .home__contact__location
