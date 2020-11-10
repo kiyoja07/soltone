@@ -1,5 +1,22 @@
 footer.footer
-    .footer__company
-        p 솔톤
-    .footer__copy
-        span.footer__text &copy; #{siteName}. All rights reserved.
+    .footer__wrapper
+        .footer__column
+            ul 
+                p 지금 바로 톡
+            ul 
+                a(href=routes.home)
+                    i.fab.fa-youtube
+        .footer__column
+            ul
+                p.company__name 솔톤 세무
+            ul
+                p.company__address 서울시 강서구 허준로175
+            ul
+                p.company__phone Tel. 02-1234-1234
+            ul
+                p.company__email Email. soltone@soltone.co.kr
+            ul
+                p.company__fax Fax. 02-1234-1234
+            
+    div.footer__copyright
+        p.footer__text &copy; #{siteName}. All rights reserved.
