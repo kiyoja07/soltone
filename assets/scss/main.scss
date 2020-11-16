@@ -5,7 +5,11 @@ body {
 
 main {
   width: 100%;
-  max-width: 1200px;
+  max-width: $pw-max-width;
   margin: 0 auto;
   min-height: 70vh;
+}
+
+.img__hero {
+  max-width: $pw-max-width;
 }

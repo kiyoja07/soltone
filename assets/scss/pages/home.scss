@@ -1,0 +1,118 @@
+.home-container {
+  padding-top: 100px;
+  .img__hero .img__hero--content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    z-index: 2;
+    text-align: center;
+  }
+  .img__hero {
+    position: relative;
+    background-image: url("/imageSource/hero_image.jpg");
+    height: 50vh;
+    background-size: cover;
+    .img__hero--cover {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+  }
+  .work__area {
+    .work__area__wrapper {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      .work__area__detail {
+        background-color: green;
+        height: 10vh;
+        margin: 20px;
+        padding: 2vh 2vw;
+        h4 {
+          text-align: center;
+          font-size: 16px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .start {
+    text-align: center;
+  }
+  .home__contact {
+    margin: 2vh auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    .home__contact__column {
+      :nth-child(1) {
+        width: 100%;
+        justify-self: center;
+      }
+      &:nth-child(2) {
+        width: 100%;
+        justify-self: center;
+        padding-right: 20px;
+      }
+    }
+  }
+  .customer__info {
+    margin: 2vh auto;
+    text-align: center;
+    .customer__info--title {
+      margin: 2vh auto;
+    }
+    .customer__info--wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      .customer__info__column {
+        :nth-child(1) {
+          width: 100%;
+          justify-self: center;
+        }
+        &:nth-child(2) {
+          width: 100%;
+          justify-self: center;
+        }
+        &:last-child {
+          width: 100%;
+          justify-self: center;
+        }
+      }
+    }
+  }
+  .home__trust {
+    .home__trust__message {
+      text-align: center;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 3vh auto;
+      li {
+        margin: auto;
+      }
+    }
+    .home__trust__link {
+      .img__trust {
+        width: 100px;
+      }
+    }
+  }
+  .home__lastMessage {
+    background-color: green;
+    text-align: center;
+    padding: 2vh 0;
+  }
+}

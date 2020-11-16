@@ -1,9 +1,9 @@
 .footer {
   background-color: $dark-gray;
-  padding: 3vh 3vw;
+  width: 100%;
+  padding: 3vh 5vw 5vh 5vw;
   .footer__wrapper {
-    padding: 5px 0px;
-    width: 100%;
+    padding: 5px 2vw;
     margin: 0 auto;
     max-width: 1200px;
     display: grid;
@@ -25,18 +25,20 @@
         display: flex;
         color: black;
         font-weight: 600;
-        margin: 0.5vh auto;
+        margin: 1vh auto;
       }
     }
   }
   .footer__copyright {
     .footer__text {
       border-top: 1px solid black;
-      margin-top: 1em;
-      padding-top: 1em;
+      margin-top: 3em;
+      padding-top: 3em;
       text-align: center;
       color: black;
       font-size: 12px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
   }
 }

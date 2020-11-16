@@ -1,0 +1,23 @@
+.people {
+  margin: 2vh auto;
+  .people__title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .people__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    .people__column {
+      :nth-child(1) {
+        width: 100%;
+        justify-self: center;
+        padding-right: 25%;
+      }
+      :nth-child(2) {
+        width: 100%;
+        justify-self: center;
+      }
+    }
+  }
+}
