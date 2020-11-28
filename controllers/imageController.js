@@ -1,17 +1,17 @@
+import Image from "../models/Image";
 import dotenv from "dotenv";
-import routes from "../routes";
 
 dotenv.config();
 
-const mapKey = process.env.MAP_KEY;
+const mapAppKey = process.env.MAP_APP_KEY;
+const mapApiKey = process.env.MAP_API_KEY;
 
 // Home
 export const home = (req, res) => {
     try {
-      res.render("home", { pageTitle: "Home", mapKey});
-      console.log(mapKey);
+      res.render("home", { pageTitle: "Home", mapAppKey, mapApiKey });
     } catch (error) {
-      console.log(error);
-      res.render("home", { pageTitle: "Home", mapKey });
+      console.log(`res.render("home") error : ${error}`);
+      res.render("home", { pageTitle: "Home", mapAppKey: [], mapApiKey: [] });
     }
 };

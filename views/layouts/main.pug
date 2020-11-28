@@ -7,17 +7,20 @@ html
 
         //- meta(http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self'; script-src 'self' 'unsafe-eval' ") 
 
-
         //- Styles
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css" integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous")
         link(rel="stylesheet" type="text/css" href="/static/styles.css")
-        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.15.0/css/all.css", integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q", crossorigin="anonymous")
 
+        //- Favicon & Title
+        link(rel="shortcut icon" type="image/png" href="/imageSource/kacpta_logo.jpg")
         title #{siteName} | #{pageTitle}
-
-        script(type="text/javascript" src=`//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapKey}`)
+        
+        //- API
+        script(type="text/javascript" src=`//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&libraries=services,clusterer,drawing`)
+        //- script(type="text/javascript" src=`//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapApiKey}&libraries=services,clusterer,drawing`)
         
     body
-        include ../partials/header
+        //- include ../partials/header
         main
             block content
         include ../partials/footer

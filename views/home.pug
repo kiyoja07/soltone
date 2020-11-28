@@ -15,7 +15,10 @@ block content
                         | 카톡으로 무료 상담 받기
             .img__hero--cover
         .work__area
-            .work__area__wrapper
+            .work__area__title__wrapper
+                h3.work__area__title
+                    span 주요 분야
+            .work__area__detail__wrapper
                 .work__area__detail
                     h4 사업체 절세
                     p 절세요
@@ -41,21 +44,22 @@ block content
                 .customer__info__column
                     p 100+
                     p 세무진단 및 조사지원
-        .start
-            ul
-                h3 내 손 안의 세무 파트너
-            ul  
-                p 카톡으로 끝
-            ul
-                button.social-login--github
-                    a(href='https://www.kakaocorp.com/' target='_blank')
-                        span
-                            i.fab.fa-github 
-                        | 카톡으로 무료 상담 받기
+        .start__kakao
+            .start__kakao__wrapper
+                ul
+                    p 내 손 안의 세무 파트너
+                ul  
+                    p 카톡으로 끝
+                ul
+                    button.social-login--github
+                        a(href='https://www.kakaocorp.com/' target='_blank')
+                            span
+                                i.fab.fa-github 
+                            | 카톡으로 무료 상담 받기
         .people
             +people
         .home__contact
-            .home__contact__column
+            .home__contact__column.home__contact__map
                 +mapBlock
             .home__contact__column
                 .home__contact__companyName
@@ -85,6 +89,7 @@ block content
                         a(href="https://www.moef.go.kr/" target="_blank")
                             img.img__trust(src="/imageSource/moef_logo.jpg" alt="기획재정부")
         .home__lastMessage
-            p 솔톤이 제시하는 새로운 세금 관리
-            p 솔톤을 통해 효율적인 세금관리로 내 자산, 내 사업을 성장시키세요. 
-            p 고객님을 뒤따르는 세금, 세금을 앞지르는 솔톤.
+            .home__lastMessage__wrapper
+                h6 솔톤이 제시하는 새로운 세금 관리
+                h6 솔톤을 통해 효율적인 세금관리로 내 자산, 내 사업을 성장시키세요. 
+                h6 고객님을 뒤따르는 세금, 세금을 앞지르는 솔톤.
