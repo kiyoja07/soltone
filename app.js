@@ -12,7 +12,7 @@ const app = express();
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
-// app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("uploads"));
 app.use("/imageSource", express.static("imageSource"));
 app.use("/static", express.static("static"));
 app.use(cookieParser());

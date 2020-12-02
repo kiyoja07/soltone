@@ -7,6 +7,10 @@ const UserSchema = new mongoose.Schema({
     kakaotalkId: Number,
     naverId: Number,
     githubId: Number,
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    }
 });
 
 const model = mongoose.model("User", UserSchema);

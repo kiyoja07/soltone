@@ -1,20 +1,19 @@
 import mongoose from "mongoose";
 
-const ImageSchema = new mongoose.Schema({
+const MessageSchema = new mongoose.Schema({
     type : {
         type: String,
         required: "Type is required",
     },
-    fileUrl: {
+    message: {
         type: String,
-        required: "File Url is required",
+        required: "Message is required",
     },
-    title: String,
     createdAt: {
         type: Date,
         default: Date.now,
     }
 });
 
-const model = mongoose.model("Image", ImageSchema);
+const model = mongoose.model("Message", MessageSchema);
 export default model;
