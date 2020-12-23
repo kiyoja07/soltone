@@ -27,7 +27,7 @@ geocoder.addressSearch('서울 마포구 양화로 161', function(result, status
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;border-radius:50px;">모두의 택스</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;border-radius:50px;background-color:#2e394d;">솔톤세무회계</div>'
         });
         infowindow.open(map, marker);
 
@@ -37,7 +37,7 @@ geocoder.addressSearch('서울 마포구 양화로 161', function(result, status
 });   
 
 // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-var zoomControl = new kakao.maps.ZoomControl();
+const zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.TOPRIGHT);
 
 function init() {

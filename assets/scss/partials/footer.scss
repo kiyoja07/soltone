@@ -44,8 +44,17 @@
         font-weight: bold;
       }
       .social-login--kakao {
+        font-size: 16px;
         width: 40%;
+        height: 10vh;
         margin: 0 auto;
+        padding: 0;
+        background-color: #fae100;
+        border-color: #fae100;
+        box-shadow: none;
+        cursor: pointer;
+        text-shadow: none;
+        border-style: solid;
       }
       .company__name {
         text-align: left;
