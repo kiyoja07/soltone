@@ -6,7 +6,6 @@ import bodyParser from "body-parser";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
-import userRouter from "./routers/userRouter";
 
 const app = express();
 
@@ -22,6 +21,5 @@ app.use(morgan("dev"));
 app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
-app.use(routes.users, userRouter);
 
 export default app;

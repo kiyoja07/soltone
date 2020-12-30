@@ -1,10 +1,5 @@
 import dotenv from "dotenv";
-import "./db";
 import app from "./app";
-
-import "./models/Image";
-import "./models/Message";
-import "./models/User";
 
 dotenv.config();
 

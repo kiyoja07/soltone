@@ -4,23 +4,31 @@ html
         //- Meta
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        meta(name="theme-color" content="#2e394d")
+        meta(name="author" content="솔톤세무회계")
+        meta(name="description" content="내 손 안의 세무 파트너 솔톤. 법인세 | 소득세 | 재산세 | 기장대행 | 세무상담")
 
-        //- meta(http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self'; script-src 'self' 'unsafe-eval' ") 
+        //- Open Graph protocol
+        meta(property="og:title" content="솔톤세무회계")
+        meta(property="og:type" content="website")
+        meta(property="og:image" content="/uploads/images/og_image_soltone.png")
+        meta(property="og:description" content="내 손 안의 세무 파트너 솔톤")
+        meta(property="og:url" content="https://soltonetax.com/")
+
 
         //- Styles
-        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css" integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous")
         link(rel="stylesheet" type="text/css" href="/static/styles.css")
+        link(href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Nunito&display=swap" rel="stylesheet")
 
         //- Favicon & Title
-        link(rel="shortcut icon" type="image/png" href="/imageSource/kacpta_logo.jpg")
+        //- link(rel="shortcut icon" type="image/png" href="/uploads/images/favicon.png")
         title #{siteName} | #{pageTitle}
-        
+
         //- API
         script(type="text/javascript" src=`//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&libraries=services,clusterer,drawing`)
-        //- script(type="text/javascript" src=`//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapApiKey}&libraries=services,clusterer,drawing`)
         
     body
-        //- include ../partials/header
+        include ../partials/header
         main
             block content
         include ../partials/footer

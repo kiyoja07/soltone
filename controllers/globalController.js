@@ -1,4 +1,3 @@
-import Image from "../models/Image";
 import dotenv from "dotenv";
 
 dotenv.config();

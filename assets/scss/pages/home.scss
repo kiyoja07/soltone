@@ -5,72 +5,77 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
+    font-size: 24px;
     color: white;
     z-index: 2;
     text-align: center;
   }
+  .img__hero--content {
+    ul {
+      font-weight: 600;
+      margin: 3vh auto;
+    }
+  }
   .img__hero {
     position: relative;
-    background-image: url("/imageSource/hero_image.jpg");
+    background-image: url("/uploads/images/hero_image.jpg");
     height: 50vh;
     background-size: cover;
     .img__hero--cover {
       position: absolute;
       height: 100%;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.2);
       z-index: 1;
     }
   }
-  .work__area {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    background-color: #edebde;
-    .work__area__title__wrapper {
-      padding-top: 5vh;
-      background-color: #edebde;
-      .work__area__title {
-        text-align: center;
-        letter-spacing: 1.1px;
-        font-size: 18px;
-        span {
-          width: initial;
-          border-bottom: 2px solid #f1574b;
-          display: inline-block;
-          padding-bottom: 3px;
-        }
-      }
-    }
-    .work__area__detail__wrapper {
-      max-width: $pw-max-width;
-      margin: 0 auto;
-      padding: 5vh 2vw;
-      display: grid;
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-      .work__area__detail {
-        background-color: $white;
-        width: 410px;
-        height: 360px;
-        margin: 20px auto;
-        padding: 2vh 2vw;
-
-        h4 {
-          text-align: center;
-          font-size: 28px;
-        }
-        p {
-          font-size: 16px;
-        }
-      }
-    }
-  }
+  // .work__area {
+  //   width: 100vw;
+  //   margin-left: calc(-50vw + 50%);
+  //   background-color: #edebde;
+  //   .work__area__title__wrapper {
+  //     padding-top: 5vh;
+  //     background-color: #edebde;
+  //     .work__area__title {
+  //       text-align: center;
+  //       letter-spacing: 1.1px;
+  //       font-size: 18px;
+  //       span {
+  //         width: initial;
+  //         border-bottom: 2px solid #f1574b;
+  //         display: inline-block;
+  //         padding-bottom: 3px;
+  //       }
+  //     }
+  //   }
+  //   .work__area__detail__wrapper {
+  //     max-width: $pw-max-width;
+  //     margin: 0 auto;
+  //     padding: 5vh 2vw;
+  //     display: grid;
+  //     grid-template-rows: repeat(2, 1fr);
+  //     grid-template-columns: repeat(2, 1fr);
+  //     align-items: center;
+  //     .work__area__detail {
+  //       background-color: $white;
+  //       width: 410px;
+  //       height: 360px;
+  //       margin: 20px auto;
+  //       padding: 50px 4vw;
+  //       h4 {
+  //         text-align: center;
+  //         font-size: 16px;
+  //       }
+  //       p {
+  //         font-size: 14px;
+  //       }
+  //     }
+  //   }
+  // }
   .start__kakao {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    background-color: $background-blue;
+    background-color: $background-white;
     .start__kakao__wrapper {
       text-align: center;
       margin: 0 auto;
@@ -78,10 +83,11 @@
       padding: 4vh 3vw;
       ul {
         font-size: $sub-titile-font-size;
-        line-height: 150%;
+        line-height: 200%;
+        margin: 2vh auto;
       }
       p {
-        font-size: 28px;
+        font-size: 20px;
         line-height: 1.75;
       }
       button {
@@ -90,25 +96,58 @@
     }
   }
   .home__contact {
-    margin: 2vh auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    .home__contact__map {
-      margin: 0 auto;
-      padding-left: 2vw;
+    margin: 0 auto;
+    padding: 5vh 0;
+    background-color: $background-yellow;
+    .home__contact--title {
+      text-align: center;
+      font-size: $sub-titile-font-size;
+      padding: 2vh 0;
+      span {
+        width: initial;
+        border-bottom: 2px solid #f1574b;
+        display: inline-block;
+        padding-bottom: 3px;
+      }
     }
-    // .home__contact__column {
-    //   :nth-child(1) {
-    //     width: 100%;
-    //     justify-self: center;
-    //   }
-    //   &:nth-child(2) {
-    //     width: 100%;
-    //     justify-self: center;
-    //   }
-    // }
+    .home__contact__container {
+      margin: 2vh auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "left-column right-column";
+      align-items: center;
+      .home__contact__map {
+        margin: 0 auto;
+        padding-left: 2vw;
+        grid-area: left-column;
+      }
+      .home__contact__info {
+        padding-left: 2vw;
+        grid-area: right-column;
+        ul {
+          display: flex;
+          margin: 3vh auto;
+        }
+        .home__contact__name {
+          font-size: 16px;
+        }
+        .home__contact__detail {
+          font-size: 16px;
+        }
+      }
+
+      // .home__contact__column {
+      //   :nth-child(1) {
+      //     width: 100%;
+      //     justify-self: center;
+      //   }
+      //   &:nth-child(2) {
+      //     width: 100%;
+      //     justify-self: center;
+      //   }
+      // }
+    }
   }
   .customer__info {
     margin: 0 auto;
@@ -171,15 +210,41 @@
   .home__lastMessage {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    background-color: $background-yellow;
+    padding: 5vh 0;
+    background-color: $background-white;
     .home__lastMessage__wrapper {
+      margin: 0 auto;
       max-width: $pw-max-width;
       font-size: $sub-titile-font-size;
-      font-weight: bold;
       text-align: center;
       line-height: 200%;
-      margin: 0 auto;
-      padding: 3vh 3vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    .img__hero--content {
+      min-width: 200px;
+      h1 {
+        font-size: 18px;
+      }
+    }
+    .home__contact {
+      .home__contact__container {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "left-column left-column" "right-column right-column";
+        .home__contact__info {
+          margin-left: 5vw;
+        }
+      }
+    }
+    .home__lastMessage {
+      .home__lastMessage__wrapper {
+        h6 {
+          font-size: 14px;
+        }
+      }
     }
   }
 }

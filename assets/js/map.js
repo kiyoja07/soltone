@@ -2,7 +2,7 @@
 const mapContainer = document.getElementById('jsMap'); //지도를 담을 영역의 DOM 레퍼런스
 const mapOption = { //지도를 생성할 때 필요한 기본 옵션
 	center: new kakao.maps.LatLng(35.450701, 126.570667), //지도의 중심좌표.
-	level: 2 //지도의 레벨(확대, 축소 정도)
+	level: 3 //지도의 레벨(확대, 축소 정도)
 };
 
 // 지도를 생성  
@@ -12,7 +12,7 @@ const map = new kakao.maps.Map(mapContainer, mapOption);
 const geocoder = new kakao.maps.services.Geocoder();
 
 // 주소로 좌표를 검색합니다
-geocoder.addressSearch('서울 마포구 양화로 161', function(result, status) {
+geocoder.addressSearch('서울 영등포구 국제금융로2길 17', function(result, status) {
 
     // 정상적으로 검색이 완료됐으면 
      if (status === kakao.maps.services.Status.OK) {
@@ -27,7 +27,7 @@ geocoder.addressSearch('서울 마포구 양화로 161', function(result, status
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;border-radius:50px;background-color:#2e394d;">솔톤세무회계</div>'
+            content: '<div style="width:120px;text-align:center;padding:6px 0;border-radius:50px;">솔톤세무회계</div>'
         });
         infowindow.open(map, marker);
 
