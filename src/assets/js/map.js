@@ -27,7 +27,8 @@ geocoder.addressSearch('서울 영등포구 국제금융로2길 17', function(re
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:120px;text-align:center;padding:6px 0;border-radius:50px;">솔톤세무회계</div>'
+            content: '<div class="mapMarker">솔톤세무회계</div>'
+
         });
         infowindow.open(map, marker);
 
