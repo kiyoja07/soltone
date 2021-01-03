@@ -2,6 +2,7 @@ extends layouts/main
 include mixins/mapBlock
 include mixins/kakaoBtn
 
+
 block content
     .home-container
         .img__hero
@@ -13,24 +14,6 @@ block content
                 ul
                     +kakaoBtn
             .img__hero--cover
-
-        //- .work__area
-        //-     .work__area__title__wrapper
-        //-         .work__area__title
-        //-             span 주요 분야
-        //-     .work__area__detail__wrapper
-        //-         .work__area__detail
-        //-             h4 사업체 절세
-        //-             p 절세요
-        //-         .work__area__detail
-        //-             h4 사장님 절세
-        //-             p 절세요
-        //-         .work__area__detail
-        //-             h4 재무 리포트
-        //-             p 절세요
-        //-         .work__area__detail
-        //-             h4 기장/세무신고 대리
-        //-             p 절세요
         //- .customer__info
         //-     .customer__info--title
         //-         h2 이미 많은 고객님들이 솔톤과 함께 하고 있습니다
@@ -93,6 +76,19 @@ block content
         //-             li.trust__link--moef
         //-                 a(href="https://www.moef.go.kr/" target="_blank")
         //-                     img.img__trust(src="/imageSource/moef_logo.jpg" alt="기획재정부")
+        
+        
+        .people-container
+            .page-title
+                h1 대표 세무사 소개
+            .people-introduce
+                .people-image
+                    img(src="https://kr.object.ncloudstorage.com/soltone/images/ceo.jpeg" alt="김덕화 세무사")
+                    h3 김덕화 대표/세무사
+                .people-intro
+                    p 법인/개인 기장, 결산, 외부조정, 양도/증여 상담, 신고, 상속세 신고, 세무조사, 상속세 조사, 부동산 자금출처, 수정신고, 경정청구 등 다양한 업무를 수행해왔습니다. 
+                .people-detail-btn
+                    a(href=routes.people) 자세히 보기
         .home__lastMessage
             .home__lastMessage__wrapper
                 h6 솔톤을 통해 효율적인 세금 관리로

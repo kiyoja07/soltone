@@ -18,9 +18,10 @@
   }
   .img__hero {
     position: relative;
-    background-image: url("/uploads/images/hero_image.jpg");
+    background-image: url("https://kr.object.ncloudstorage.com/soltone/images/hero_image.jpg");
     height: 50vh;
     background-size: cover;
+    // background-attachment: fixed;
     .img__hero--cover {
       position: absolute;
       height: 100%;
@@ -29,49 +30,6 @@
       z-index: 1;
     }
   }
-  // .work__area {
-  //   width: 100vw;
-  //   margin-left: calc(-50vw + 50%);
-  //   background-color: #edebde;
-  //   .work__area__title__wrapper {
-  //     padding-top: 5vh;
-  //     background-color: #edebde;
-  //     .work__area__title {
-  //       text-align: center;
-  //       letter-spacing: 1.1px;
-  //       font-size: 18px;
-  //       span {
-  //         width: initial;
-  //         border-bottom: 2px solid #f1574b;
-  //         display: inline-block;
-  //         padding-bottom: 3px;
-  //       }
-  //     }
-  //   }
-  //   .work__area__detail__wrapper {
-  //     max-width: $pw-max-width;
-  //     margin: 0 auto;
-  //     padding: 5vh 2vw;
-  //     display: grid;
-  //     grid-template-rows: repeat(2, 1fr);
-  //     grid-template-columns: repeat(2, 1fr);
-  //     align-items: center;
-  //     .work__area__detail {
-  //       background-color: $white;
-  //       width: 410px;
-  //       height: 360px;
-  //       margin: 20px auto;
-  //       padding: 50px 4vw;
-  //       h4 {
-  //         text-align: center;
-  //         font-size: 16px;
-  //       }
-  //       p {
-  //         font-size: 14px;
-  //       }
-  //     }
-  //   }
-  // }
   .start__kakao {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -136,17 +94,6 @@
           font-size: 16px;
         }
       }
-
-      // .home__contact__column {
-      //   :nth-child(1) {
-      //     width: 100%;
-      //     justify-self: center;
-      //   }
-      //   &:nth-child(2) {
-      //     width: 100%;
-      //     justify-self: center;
-      //   }
-      // }
     }
   }
   .customer__info {
@@ -207,11 +154,87 @@
       }
     }
   }
+  .people-container {
+    background-color: $background-white;
+    margin: 0 auto;
+    .page-title {
+      text-align: center;
+      margin: 5vh 0;
+      font-size: 30px;
+      letter-spacing: 1.1px;
+    }
+    .people-description {
+      text-align: center;
+      margin: 5vh 0;
+      p {
+        line-height: 1.75;
+      }
+    }
+    .people-introduce {
+      margin: 0 auto;
+      .people-image {
+        text-align: center;
+        img {
+          border-radius: 5px;
+          width: 200px;
+        }
+        h3 {
+          font-weight: bold;
+          line-height: 3;
+        }
+      }
+      .people-intro {
+        margin: 5vh 30vw;
+        p {
+          line-height: 1.75;
+        }
+      }
+      .people-detail-btn {
+        margin: 5vh auto;
+        text-align: center;
+        a {
+          display: block;
+          color: #ff5567;
+          letter-spacing: 1.3px;
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+      .people-detail {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "left-column right-column";
+        margin: 0 auto;
+        padding: 5vh 0 5vh 0;
+        width: 40vw;
+        justify-self: center;
+        ul {
+          display: flex;
+          margin: 1vh auto;
+        }
+        h3 {
+          width: initial;
+          border-bottom: 2px solid #f1574b;
+          display: inline-block;
+          padding-bottom: 3px;
+        }
+        .people-education {
+          grid-area: left-column;
+          // width: 100px;
+        }
+        .people-career {
+          margin: 0 auto;
+          padding-bottom: 5vh;
+          grid-area: right-column;
+        }
+      }
+    }
+  }
   .home__lastMessage {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     padding: 5vh 0;
-    background-color: $background-white;
+    background-color: $background-blue;
     .home__lastMessage__wrapper {
       margin: 0 auto;
       max-width: $pw-max-width;
@@ -236,6 +259,13 @@
         grid-template-areas: "left-column left-column" "right-column right-column";
         .home__contact__info {
           margin-left: 5vw;
+        }
+      }
+    }
+    .people-container {
+      .people-introduce {
+        .people-intro {
+          margin: 5vh 10vw;
         }
       }
     }

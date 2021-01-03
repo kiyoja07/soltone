@@ -14,3 +14,13 @@ export const home = (req, res) => {
       res.render("home", { pageTitle: "Home", mapAppKey: [], mapApiKey: [] });
     }
 };
+
+// People
+export const people = (req, res) => {
+  try {
+    res.render("people", { pageTitle: "People" });
+  } catch (error) {
+    console.log(`res.render("home") error : ${error}`);
+    res.render("people", { pageTitle: "People" });
+  }
+};

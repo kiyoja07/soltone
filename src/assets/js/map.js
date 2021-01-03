@@ -1,8 +1,8 @@
 
 const mapContainer = document.getElementById('jsMap'); //지도를 담을 영역의 DOM 레퍼런스
 const mapOption = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(35.450701, 126.570667), //지도의 중심좌표.
-	level: 3 //지도의 레벨(확대, 축소 정도)
+	center: new kakao.maps.LatLng(37.524029, 126.926017), //지도의 중심좌표.
+	level: 4 //지도의 레벨(확대, 축소 정도)
 };
 
 // 지도를 생성  
@@ -36,7 +36,7 @@ geocoder.addressSearch('서울 영등포구 국제금융로2길 17', function(re
     } 
 });   
 
-// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성
 const zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.TOPRIGHT);
 
