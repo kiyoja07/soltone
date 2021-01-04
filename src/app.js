@@ -31,7 +31,7 @@ app.get("/robots.txt", (req, res) => {
 });
 
 app.get(routes.sitemap, (req, res) => {
-    res.sendFile('/uploads/sitemap.xml', { root : __dirname});
+    res.sendFile('/sitemap.xml', { root : __dirname});
 });
 
 app.use(routes.home, globalRouter);
