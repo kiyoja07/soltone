@@ -22,6 +22,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev")); 
 app.use(localsMiddleware);
 
+app.get("/robots.txt", (req, res) => {
+    res.type("text/plain");
+    res.send(
+      "User-agent: *\nAllow: /\nDisallow: /admin/\n"
+    );
+  });
+
 app.use(routes.home, globalRouter);
 
 export default app;
