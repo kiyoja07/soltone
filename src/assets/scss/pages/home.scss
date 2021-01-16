@@ -308,9 +308,13 @@
       .mainMessage__column {
         width: 90vw;
         margin: 2vh auto;
-        padding: 3vh 3vw;
         .mainMessage-wrapper {
           height: 27vh;
+          .mainMessage-body {
+            p {
+              font-size: 14px;
+            }
+          }
         }
       }
     }
