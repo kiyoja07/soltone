@@ -32,14 +32,18 @@ html(lang="ko")
 
         //- Favicon & Title
         link(rel="shortcut icon" type="image/png" href="https://kr.object.ncloudstorage.com/soltone/images/favicon_soltone.png")
-        title #{siteName} | #{pageTitle}
+        title #{siteName} | #{pageTitle} 
 
         //- API
-        script(type="text/javascript" src=`//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&libraries=services,clusterer,drawing`)
+        script(type="text/javascript" src=`${kakaoMapApi}`)
         
     body
         include ../partials/header
         main
             block content
         include ../partials/footer
+
+        button.topBtn(title= "Go to top") Top
+        
         script(src="/static/main.js")
+        

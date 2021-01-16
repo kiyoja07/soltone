@@ -15,3 +15,26 @@ main {
 .img__hero {
   max-width: $pw-max-width;
 }
+
+/* TOP BUTTON */
+
+.topBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  z-index: 3;
+  border: none;
+  outline: none;
+  background-color: $background-dark;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+.topBtnBlock {
+  display: block;
+}
