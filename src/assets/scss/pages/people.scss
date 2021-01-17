@@ -80,10 +80,23 @@
 
 @media (max-width: 768px) {
   .people-container {
+    .page-title {
+      h1 {
+        font-size: 24px;
+      }
+    }
     padding-bottom: 3vh;
+    .people-description {
+      p {
+        font-size: 14px;
+      }
+    }
     .people-introduce {
       .people-intro {
         margin: 5vh 10vw;
+        p {
+          font-size: 14px;
+        }
       }
       .people-detail {
         width: 80vw;
@@ -92,9 +105,25 @@
         grid-template-areas: "left-column left-column" "right-column right-column";
         .people-eductaion {
           margin: 0 auto;
+          ul {
+            h3 {
+              font-size: 14px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
         }
         .people-career {
           padding-bottom: 0;
+          ul {
+            h3 {
+              font-size: 14px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
         }
       }
     }

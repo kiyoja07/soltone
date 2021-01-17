@@ -34,44 +34,44 @@ app.get(routes.sitemap, (req, res) => {
     res.sendFile('/sitemap.xml', { root : __dirname});
 });
 
-// app.use(routes.home, globalRouter);
+app.use(routes.home, globalRouter);
 
 import dotenv from "dotenv";
 import request from "request";
 
 
-dotenv.config();
+// dotenv.config();
 
 
-const blogClientID = process.env.NAVER_SEARCH_CLIENT_ID;
-const blogClientSECRET = process.env.NAVER_SEARCH_CLIENT_SECRET;
+// const blogClientID = process.env.NAVER_SEARCH_CLIENT_ID;
+// const blogClientSECRET = process.env.NAVER_SEARCH_CLIENT_SECRET;
 
-app.get('/', function (req, res) {
-  var api_url = 'https://openapi.naver.com/v1/search/blog?query=' + encodeURI("솔톤세무회계"); // json 결과
-  // var request = require('request');
-  var options = {
-      url: api_url,
-      headers: {'X-Naver-Client-Id':blogClientID, 'X-Naver-Client-Secret': blogClientSECRET}
-   };
-  request.get(options, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-      res.end(body);
-      // console.log(res);
-      let json = JSON.parse(body) //json으로 파싱
-      console.log(json.items.length);   
+// app.get('/', function (req, res) {
+//   var api_url = 'https://openapi.naver.com/v1/search/blog?query=' + encodeURI("솔톤세무회계"); // json 결과
+//   // var request = require('request');
+//   var options = {
+//       url: api_url,
+//       headers: {'X-Naver-Client-Id':blogClientID, 'X-Naver-Client-Secret': blogClientSECRET}
+//    };
+//   request.get(options, function (error, response, body) {
+//     if (!error && response.statusCode == 200) {
+//       res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+//       res.end(body);
+//       // console.log(res);
+//       let json = JSON.parse(body) //json으로 파싱
+//       console.log(json.items.length);   
       
-      for (var key in json.items) { 
-        let str = json.items[key].title.replace(/&gt;/g, '>').replace(/&lt;/g, '<');
-        console.log(str);
-      } 
+//       for (var key in json.items) { 
+//         let str = json.items[key].title.replace(/&gt;/g, '>').replace(/&lt;/g, '<');
+//         console.log(str);
+//       } 
 
-    } else {
-      res.status(response.statusCode).end();
-      console.log('error = ' + response.statusCode);
-    }
-  });
-});
+//     } else {
+//       res.status(response.statusCode).end();
+//       console.log('error = ' + response.statusCode);
+//     }
+//   });
+// });
 
 
 
