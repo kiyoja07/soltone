@@ -1,0 +1,13 @@
+extends layouts/admin
+include mixins/blogBlock
+
+block content
+    .blog-container#jsBlogList
+        each item in blogs
+            +blogBlock({
+                title: item.title,
+                link: item.link,
+                description: item.description,
+                postdate: item.postdate,
+            })
+

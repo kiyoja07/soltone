@@ -6,7 +6,6 @@ dotenv.config();
 const mapAppKey = process.env.MAP_APP_KEY;
 const kakaoMapApi = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&libraries=services,clusterer,drawing`
 
-
 // Home
 export const home = (req, res) => {
     try {
