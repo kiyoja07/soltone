@@ -236,6 +236,34 @@
       }
     }
   }
+
+  .home__blog {
+    width: 100%;
+    max-width: $pw-max-width;
+    background-color: $background-yellow;
+    padding: 5vh 0;
+    .home__blog__wrapper {
+      margin: 0 auto 0 auto;
+      padding: 6vh 2vw 0 2vw;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "left-column right-column";
+      align-items: flex-start;
+    }
+    .home__blog__browseAll {
+      margin: 5vh auto;
+      text-align: center;
+      cursor: pointer;
+      a {
+        display: block;
+        color: #ff5567;
+        letter-spacing: 1.3px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+
   .home__lastMessage {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -252,7 +280,7 @@
   .home__contact {
     margin: 0 auto;
     padding: 5vh 0;
-    background-color: $background-yellow;
+    // background-color: $background-yellow;
     .home__contact--title {
       text-align: center;
       font-size: $sub-titile-font-size;
@@ -332,6 +360,12 @@
         .people-intro {
           margin: 5vh 10vw;
         }
+      }
+    }
+    .home__blog {
+      padding: 1vh 0;
+      .home__blog__wrapper {
+        display: block;
       }
     }
     .home__lastMessage {

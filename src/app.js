@@ -1,20 +1,14 @@
 import express from "express";
-import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
-import session from "express-session";
-import MongoStore from "connect-mongo";
 import path from "path";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
-import adminRouter from "./routers/adminRouter";
+import blogRouter from "./routers/blogRouter";
 
 const app = express();
-
-const CookieStore = MongoStore(session);
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
@@ -26,15 +20,6 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan("dev")); 
-app.use(
-  session({
-    secret: process.env.COOKIE_SECRET,
-    resave: true,
-    saveUninitialized: false,
-    store: new CookieStore({ mongooseConnection: mongoose.connection }),
-  })
-);
 app.use(localsMiddleware);
 
 app.get("/robots.txt", (req, res) => {
@@ -49,6 +34,7 @@ app.get(routes.sitemap, (req, res) => {
 });
 
 app.use(routes.home, globalRouter);
-app.use(routes.admin, adminRouter);
+app.use(routes.blogs, blogRouter);
+
 
 export default app;

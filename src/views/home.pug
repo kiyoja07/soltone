@@ -1,6 +1,7 @@
 extends layouts/main
 include mixins/mapBlock
 include mixins/kakaoBtn
+include mixins/blogBlock
 
 block content
     .home-container
@@ -79,7 +80,18 @@ block content
                 .people-intro
                     p 법인/개인 기장, 결산, 외부조정, 양도/증여 상담, 신고, 상속세 신고, 세무조사, 상속세 조사, 부동산 자금출처, 수정신고, 경정청구 등 다양한 업무를 수행해왔습니다. 
                 .people-detail-btn
-                    a(href=routes.people) 자세히 보기
+                    a(href=routes.people) 자세히 보기 &nbsp;&nbsp; >
+        .home__blog
+            .home__blog__wrapper
+                each item in blogs
+                    +blogBlock({
+                        id: item.id,
+                        title: item.title,
+                        description: item.description,
+                        image: item.image,
+                    })
+            .home__blog__browseAll
+                a(href=routes.blogs) 블로그 모두 보기 &nbsp;&nbsp; >
         .home__lastMessage
             .home__lastMessage__wrapper
                 h6 솔톤을 통해 효율적인 세금 관리로

@@ -1,0 +1,16 @@
+extends layouts/main
+include mixins/blogBlock
+
+block content
+    .blog-container
+        .blog-wrapper
+            each item in blogs
+                +blogBlock({
+                    id: item.id,
+                    title: item.title,
+                    description: item.description,
+                    image: item.image,
+                })
+        .blog-home-btn
+            a(href=routes.home) 홈으로 &nbsp;&nbsp; >
+            

@@ -1,0 +1,45 @@
+extends layouts/main
+
+block content
+    .blogDetail-container
+        .blogDetail-wrapper
+            .blog-title-container
+                h1.blog-title=blog.title
+            .blog-addition-container
+                span.blog-writer By 솔톤세무회계 &nbsp; on &nbsp; 
+                if blog.postdate
+                    span.blog-postdate=blog.postdate 
+            .blog-tag-container
+                if blog.tags
+                    each tag in blog.tags
+                        .blog-tag
+                            label=tag                 
+            .blog-detail-cotainer
+                if blog.image1.length > 0
+                    each item in blog.image1
+                        img(src=item).blog-image
+                if blog.description1
+                    pre.blog-description=blog.description1
+                if blog.image2.length > 0
+                    each item in blog.image2
+                        img(src=item).blog-image
+                if blog.description2
+                    pre.blog-description=blog.description2
+                if blog.image3.length > 0
+                    each item in blog.image3
+                        img(src=item).blog-image
+                if blog.description3
+                    pre.blog-description=blog.description3
+                if blog.image4.length > 0
+                    each item in blog.image4
+                        img(src=item).blog-image
+                if blog.description4
+                    pre.blog-description=blog.description4
+                if blog.image5.length > 0
+                    each item in blog.image5
+                        img(src=item).blog-image
+                if blog.description5
+                    pre.blog-description=blog.description5
+            .blogDetail__browseAll
+                a(href=routes.blogs) 다른 블로그 글 보기 &nbsp;&nbsp; >
+

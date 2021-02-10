@@ -1,29 +1,121 @@
 import dotenv from "dotenv";
 import routes from "../routes";
+import Airtable from "airtable";
 
 dotenv.config();
 
 const mapAppKey = process.env.MAP_APP_KEY;
-const kakaoMapApi = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&libraries=services,clusterer,drawing`
+const kakaoMapApi = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&libraries=services,clusterer,drawing`;
+const airTableBaseId = process.env.AIRTABLE_BASE_ID;
+const airTableApiKey = process.env.AIRTABLE_API_KEY;
 
-const NaverAnalyticsId = process.env.NAVER_ANALYTICS_ID;
+const handelRecord = (record) => {
+  let blog = [];
+  const maxTextLength = 160;
+  const defaultImageUrl = "https://kr.object.ncloudstorage.com/soltone/images/og_image_soltone.jpg";
+  const regExp = /[**]|\\/g;
+
+  blog['id'] = record['id'];
+  blog['title'] = record.get('title');
+
+  // let description1 = record.get('description1').replace(/(\r\n\t|\n|\r\t)/gm,"");
+  let description = record.get('description1');
+  if (description.length >= maxTextLength) {
+    description = description.substr(0, maxTextLength) + ' ...';
+  }
+  blog['description'] = description.replace(regExp, ''); 
+
+  if (record.get('image1')) {
+    blog['image'] = record.get('image1')[0].url;
+  } else if (record.get('image2')) {
+    blog['image'] = record.get('image2')[0].url;
+  } else if (record.get('image3')) {
+    blog['image'] = record.get('image3')[0].url;
+  } else if (record.get('image4')) {
+    blog['image'] = record.get('image4')[0].url;
+  } else if (record.get('image5')) {
+    blog['image'] = record.get('image5')[0].url;
+  } else {
+    blog['image'] = defaultImageUrl;
+  } 
+          
+  return blog;  
+}
+
+// Blogs
+const requestAirtable = blogType => {
+  const base = new Airtable({apiKey: airTableApiKey}).base(airTableBaseId);
+  let blogsFromAirtable = [];
+  return new Promise(function(resolve, reject) {
+    base('blog').select({
+      view: "Grid view"
+    }).eachPage(function page(records, fetchNextPage) {
+        records.forEach(function(record) {
+
+          let blog;
+          const status = record.get('status');
+          if (blogType == "home") {
+            if(status == blogType) {    
+              blog = handelRecord(record);
+              blogsFromAirtable.push(blog);
+            }
+          } else if (blogType == "on") {
+            if(status == blogType || status == "home") {    
+              blog = handelRecord(record);
+              blogsFromAirtable.push(blog);
+            }
+          }
+        });
+  
+      fetchNextPage();
+  
+    }, function done(err) {
+      if (err) { 
+        console.error(err); 
+        reject(); 
+      } 
+      resolve(blogsFromAirtable);
+    });
+  });
+}
+
 
 // Home
-export const home = (req, res) => {
+export const home = async (req, res) => {
+  const metaDescription="내 손 안의 세무 파트너 솔톤. 법인세 | 소득세 | 재산세 | 기장대행 | 세무상담";
     try {
-      res.render("home", { pageTitle: "Home", canonicalUrl: routes.home, NaverAnalyticsId, kakaoMapApi });
+      const maxBlog = 4;
+      const blogType = "home";
+      let blogs = await requestAirtable(blogType);
+      blogs = blogs.reverse().slice(0, maxBlog);
+      res.render("home", { pageTitle: "Home", canonicalUrl: routes.home, metaDescription, kakaoMapApi, blogs });
     } catch (error) {
       console.log(`res.render("home") error : ${error}`);
-      res.render("home", { pageTitle: "Home", canonicalUrl: routes.home, NaverAnalyticsId, kakaoMapApi: [] });
+      res.render("home", { pageTitle: "Home", canonicalUrl: routes.home, metaDescription, kakaoMapApi: [], blogs: [] });
     }
+};
+
+// Blogs
+export const blogs = async (req, res) => {
+  const metaDescription="솔톤세무회계 블로그";
+  try {
+    const blogType = "on";
+    let blogs = await requestAirtable(blogType);
+    blogs = blogs.reverse();
+    res.render("blogs", { pageTitle: "Blogs", canonicalUrl: routes.blogs, metaDescription, blogs, kakaoMapApi: [] });
+  } catch (error) {
+      console.log(`res.render("blogs") error : ${error}`);
+      res.redirect(routes.home);
+  }
 };
 
 // People
 export const people = (req, res) => {
+  const metaDescription="솔톤세무회계 김덕화 세무사";
   try {
-    res.render("people", { pageTitle: "People", canonicalUrl: routes.people, NaverAnalyticsId, kakaoMapApi: [] });
+    res.render("people", { pageTitle: "People", canonicalUrl: routes.people, metaDescription, kakaoMapApi: [] });
   } catch (error) {
-    console.log(`res.render("home") error : ${error}`);
-    res.render("people", { pageTitle: "People", canonicalUrl: routes.people, NaverAnalyticsId });
+    console.log(`res.render("people") error : ${error}`);
+    res.redirect(routes.home);
   }
 };

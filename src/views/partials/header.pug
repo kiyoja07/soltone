@@ -5,4 +5,19 @@ header.header
                 //- i.fab.fa-youtube    
                 span 솔톤세무회계
         .header__column.header__menu
-            a(href=routes.people) 구성원
+            //- a(href=routes.people) 구성원
+            nav(role="navigation")
+                .menuToggle
+                    input(type="checkbox")
+                    span
+                    span
+                    span
+                    ul.menu
+                        a(href=routes.home)
+                            li 홈
+                        a(href=routes.blogs)
+                            li 블로그
+                        a(href=routes.people)
+                            li 구성원                                             
+
+

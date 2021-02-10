@@ -7,7 +7,8 @@ const blogClientID = process.env.NAVER_SEARCH_CLIENT_ID;
 const blogClientSECRET = process.env.NAVER_SEARCH_CLIENT_SECRET;
 const soltone_blog_url = "https://blog.naver.com/dukazzang";
 
-let blogs;
+let blogsFromNaver = [];
+
 
 const replaceStr = str => {
     str = str.replace(/&gt;/g, '>');
@@ -19,7 +20,6 @@ const replaceStr = str => {
 };
 
 const getItem = json => {
-  let blogs = [];
   for (const key in json.items) { 
     const items = json.items[key];
     if (items.bloggerlink == soltone_blog_url) {
@@ -39,10 +39,10 @@ const getItem = json => {
       blog['bloggerlink'] = bloggerlink;
       blog['postdate'] = postdate;
 
-      blogs.push(blog);
+      blogsFromNaver.push(blog);
     }
   }
-  return blogs
+  return blogsFromNaver
 };
 
 export const requestBlog = (req, res, next) => {
@@ -56,7 +56,7 @@ export const requestBlog = (req, res, next) => {
             // res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
             // res.end(body);
             const json = JSON.parse(body) //json으로 파싱
-            blogs = getItem(json);
+            blogsFromNaver = getItem(json);
         } else {
           res.status(response.statusCode).end();
           console.log('error = ' + response.statusCode);
@@ -65,11 +65,7 @@ export const requestBlog = (req, res, next) => {
     });
 };
 
-export const getBlog = (req, res) => {
-    try {
-        res.render("getBlog", { pageTitle: "Admin", blogs });
-    } catch (error) {
-        res.render("getBlog", { pageTitle: "Admin", blogs : [] });
-        console.log(`res.render("getBlog") error : ${error}`);
-    }
-}
+
+
+
+

@@ -1,6 +1,14 @@
 mixin blogBlock( blog = {} )
-    p title : #{blog.title}
-    p description : #{blog.description}
-    p postdate : #{blog.postdate}
-    p link : #{blog.link}
+    .blogBlock
+        a(href=routes.blogDetail(blog.id))
+            .blogBlock__column
+                img(src=blog.image).blogBlock__image
+            .blogBlock__column.blogBlock__text
+                h4.blogBlock__title=blog.title
+                p.blogBlock__description=blog.description
+                p.blogBlock__readMore Read More
     
+    //- if blog.image.length > 0
+    //-     each item in blog.image
+    //-         p= item
+    //-         img(src=item)

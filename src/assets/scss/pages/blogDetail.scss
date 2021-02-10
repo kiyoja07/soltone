@@ -1,0 +1,115 @@
+.blogDetail-container {
+  background-color: white;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: $header-height;
+  .blogDetail-wrapper {
+    width: 70vw;
+    margin: 0 auto 5vh auto;
+    max-width: $pw-max-width;
+    padding: 5vh 0;
+    .blog-title-container {
+      margin: 2em 0;
+      text-align: center;
+      .blog-title {
+        font-size: 38px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+    }
+    .blog-addition-container {
+      width: 70vw;
+      margin: 2vh auto 3vh auto;
+      text-align: right;
+      color: #767676;
+    }
+    .blog-tag-container {
+      text-align: center;
+      margin-bottom: 1.625em;
+      .blog-tag {
+        display: inline-block;
+        position: relative;
+        margin: 10px;
+        label {
+          display: block;
+          border-radius: 16px;
+          background-color: $background-blue;
+          padding: 7px 18px;
+          font-size: 18px;
+        }
+      }
+    }
+    .blog-detail-cotainer {
+      width: 70vw;
+      margin: 5vh auto;
+      .blog-image {
+        width: 70vw;
+        max-width: $pw-max-width;
+        height: 37vw;
+        margin: 1vh 0;
+        vertical-align: middle;
+      }
+      .blog-description {
+        margin: 2vh 0;
+        padding: 0 4vw 0 4vw;
+        line-height: 1.6;
+        // 내용이 width를 넘을 경우, 자동으로 줄바꿈
+        white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+        white-space: -pre-wrap; /* Opera */
+        white-space: -o-pre-wrap; /* Opera */
+        white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+        word-wrap: break-word; /* IE 5.5+ */
+      }
+    }
+    .blogDetail__browseAll {
+      margin: 5vh auto 1vh auto;
+      text-align: center;
+      cursor: pointer;
+      a {
+        display: block;
+        color: #ff5567;
+        letter-spacing: 1.3px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .blogDetail-container {
+    .blogDetail-wrapper {
+      width: 90vw;
+      .blog-title-container {
+        .blog-title {
+          font-size: 28px;
+        }
+      }
+      .blog-addition-container {
+        width: 90vw;
+        font-size: 14px;
+      }
+      .blog-tag-container {
+        .blog-tag {
+          label {
+            font-size: 16px;
+          }
+        }
+      }
+      .blog-detail-cotainer {
+        width: 90vw;
+        .blog-image {
+          width: 90vw;
+          height: 47.5vw;
+        }
+        .blog-description {
+          padding: 0 1vw 0 1vw;
+        }
+      }
+      .blogDetail__browseAll {
+        a {
+        }
+      }
+    }
+  }
+}
