@@ -21,10 +21,12 @@ const retrieveAirtable = id => {
   const base = new Airtable({apiKey: airTableApiKey}).base(airTableBaseId);
   let blog = [];
   const regExp = /[**]|\\/g;
+  const defaultImageUrl = "https://kr.object.ncloudstorage.com/soltone/images/og_image_soltone.jpg";
   return new Promise(function(resolve, reject) {
     base('blog').find(id, function(err, record) {
       let status = record.get('status');
       if (status == 'on' || status == 'home') {
+        blog['id'] = record['id'];
         blog['title'] = record.get('title');
         blog['description1'] = record.get('description1').replace(regExp, '');
         blog['description2'] = record.get('description2').replace(regExp, '');
@@ -40,6 +42,22 @@ const retrieveAirtable = id => {
 
         blog['tags'] = record.get('tags');
         blog['postdate'] = record.get('postdate');
+
+        if (record.get('image1')) {
+          blog['ogImageUrl'] = record.get('image1')[0].url;
+        } else if (record.get('image2')) {
+          blog['ogImageUrl'] = record.get('image2')[0].url;
+        } else if (record.get('image3')) {
+          blog['ogImageUrl'] = record.get('image3')[0].url;
+        } else if (record.get('image4')) {
+          blog['ogImageUrl'] = record.get('image4')[0].url;
+        } else if (record.get('image5')) {
+          blog['ogImageUrl'] = record.get('image5')[0].url;
+        } else {
+          blog['ogImageUrl'] = defaultImageUrl;
+        } 
+
+
       }
       if (err) { 
         console.error(err);
@@ -57,8 +75,9 @@ export const blogDetail = async (req, res) => {
   } = req;
  try {
   let blog = await retrieveAirtable(id);
-  const metaDescription=blog.title;
-  res.render("blogDetail", { pageTitle: blog.title, canonicalUrl: routes.blogDetail(blog.id), metaDescription, blog, kakaoMapApi: [] });
+  const metaDescription = blog.title;
+  const ogImageUrl = blog.ogImageUrl;
+  res.render("blogDetail", { pageTitle: blog.title, canonicalUrl: routes.blogDetail(blog.id), metaDescription, blog, ogImageUrl, kakaoMapApi: [] });
  } catch (error) {
   console.log(`res.render("blogDetail") error : ${error}`);
   res.redirect(routes.home);

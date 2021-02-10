@@ -9,6 +9,8 @@ const kakaoMapApi = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&librari
 const airTableBaseId = process.env.AIRTABLE_BASE_ID;
 const airTableApiKey = process.env.AIRTABLE_API_KEY;
 
+
+// Blogs
 const handelRecord = (record) => {
   let blog = [];
   const maxTextLength = 160;
@@ -42,7 +44,6 @@ const handelRecord = (record) => {
   return blog;  
 }
 
-// Blogs
 const requestAirtable = blogType => {
   const base = new Airtable({apiKey: airTableApiKey}).base(airTableBaseId);
   let blogsFromAirtable = [];
@@ -79,41 +80,44 @@ const requestAirtable = blogType => {
   });
 }
 
-
-// Home
-export const home = async (req, res) => {
-  const metaDescription="내 손 안의 세무 파트너 솔톤. 법인세 | 소득세 | 재산세 | 기장대행 | 세무상담";
-    try {
-      const maxBlog = 4;
-      const blogType = "home";
-      let blogs = await requestAirtable(blogType);
-      blogs = blogs.reverse().slice(0, maxBlog);
-      res.render("home", { pageTitle: "Home", canonicalUrl: routes.home, metaDescription, kakaoMapApi, blogs });
-    } catch (error) {
-      console.log(`res.render("home") error : ${error}`);
-      res.render("home", { pageTitle: "Home", canonicalUrl: routes.home, metaDescription, kakaoMapApi: [], blogs: [] });
-    }
-};
-
 // Blogs
 export const blogs = async (req, res) => {
   const metaDescription="솔톤세무회계 블로그";
+  const ogImageUrl = "https://kr.object.ncloudstorage.com/soltone/images/og_image_soltone.jpg";
   try {
     const blogType = "on";
     let blogs = await requestAirtable(blogType);
     blogs = blogs.reverse();
-    res.render("blogs", { pageTitle: "Blogs", canonicalUrl: routes.blogs, metaDescription, blogs, kakaoMapApi: [] });
+    res.render("blogs", { pageTitle: "Blogs", canonicalUrl: routes.blogs, metaDescription, blogs, kakaoMapApi: [], ogImageUrl });
   } catch (error) {
       console.log(`res.render("blogs") error : ${error}`);
       res.redirect(routes.home);
   }
 };
 
+
+// Home
+export const home = async (req, res) => {
+  const metaDescription="내 손 안의 세무 파트너 솔톤. 법인세 | 소득세 | 재산세 | 기장대행 | 세무상담";
+  const ogImageUrl = "https://kr.object.ncloudstorage.com/soltone/images/og_image_soltone.jpg";
+    try {
+      const maxBlog = 4;
+      const blogType = "home";
+      let blogs = await requestAirtable(blogType);
+      blogs = blogs.reverse().slice(0, maxBlog);
+      res.render("home", { pageTitle: "Home", canonicalUrl: routes.home, metaDescription, kakaoMapApi, blogs, ogImageUrl });
+    } catch (error) {
+      console.log(`res.render("home") error : ${error}`);
+      res.render("home", { pageTitle: "Home", canonicalUrl: routes.home, metaDescription, kakaoMapApi: [], blogs: [], ogImageUrl });
+    }
+};
+
 // People
 export const people = (req, res) => {
   const metaDescription="솔톤세무회계 김덕화 세무사";
+  const ogImageUrl = "https://kr.object.ncloudstorage.com/soltone/images/og_image_soltone.jpg";
   try {
-    res.render("people", { pageTitle: "People", canonicalUrl: routes.people, metaDescription, kakaoMapApi: [] });
+    res.render("people", { pageTitle: "People", canonicalUrl: routes.people, metaDescription, kakaoMapApi: [], ogImageUrl });
   } catch (error) {
     console.log(`res.render("people") error : ${error}`);
     res.redirect(routes.home);
