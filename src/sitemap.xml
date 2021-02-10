@@ -9,12 +9,32 @@
 
 <url>
   <loc>https://soltonetax.com/</loc>
-  <lastmod>2021-01-04T09:32:55+00:00</lastmod>
+  <lastmod>2021-02-10T12:09:36+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://soltonetax.com/blogs</loc>
+  <lastmod>2021-02-10T12:09:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://soltonetax.com/people</loc>
-  <lastmod>2021-01-04T09:32:55+00:00</lastmod>
+  <lastmod>2021-02-10T12:09:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://soltonetax.com/blogs/recE6Q2DmTOTG0Cqe</loc>
+  <lastmod>2021-02-10T12:09:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://soltonetax.com/blogs/rechC9V3P26sN6LD4</loc>
+  <lastmod>2021-02-10T12:09:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://soltonetax.com/blogs/recZlOvJWzDqvf33s</loc>
+  <lastmod>2021-02-10T12:09:36+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
