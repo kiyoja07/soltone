@@ -11,7 +11,7 @@ const handleImage = images => {
     let imageUrl = [];
     if (images) {
       images.forEach(function(image) {
-        imageUrl.push(image.url)
+        imageUrl.push(image.url);
       })
     }
     return imageUrl
@@ -24,6 +24,7 @@ const retrieveAirtable = id => {
   const defaultImageUrl = "https://kr.object.ncloudstorage.com/soltone/images/og_image_soltone.jpg";
   return new Promise(function(resolve, reject) {
     base('blog').find(id, function(err, record) {
+
       let status = record.get('status');
       if (status == 'on' || status == 'home') {
         blog['id'] = record['id'];
