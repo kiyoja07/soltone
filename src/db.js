@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -11,9 +11,8 @@ mongoose.connect(process.env.MONGO_URL, {
 
 const db = mongoose.connection;
 
-const handelOpen = () => console.log("✅ Connected to DB");
-const handleError = (error) =>
-  console.log(`❌ Error on DB Connections: ${error}`);
+const handelOpen = () => console.log('✅ Connected to DB');
+const handleError = (error) => console.log(`❌ Error on DB Connections: ${error}`);
 
-db.once("open", handelOpen);
-db.on("error", handleError);
+db.once('open', handelOpen);
+db.on('error', handleError);

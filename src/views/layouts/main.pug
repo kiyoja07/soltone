@@ -15,7 +15,6 @@ html(lang="ko")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
         meta(name="theme-color" content="#2e394d")
         meta(name="author" content="솔톤세무회계")
-        //- meta(name="description" content="내 손 안의 세무 파트너 솔톤. 법인세 | 소득세 | 재산세 | 기장대행 | 세무상담")
         meta(name="description" content=`${metaDescription}`)
         meta(name="keywords" content="세무사, 세금, 법인세, 소득세, 재산세, 기장대행, 세무상담")
 
@@ -38,14 +37,14 @@ html(lang="ko")
 
         //- Styles
         link(rel="stylesheet" type="text/css" href="/static/styles.css")
-        link(href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Nunito&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet")
 
         //- Favicon & Title
         link(rel="shortcut icon" type="image/png" href="https://kr.object.ncloudstorage.com/soltone/images/favicon_soltone.png")
-        title #{siteName} | #{pageTitle} 
-
-        //- API
-        script(type="text/javascript" src=`${kakaoMapApi}`)
+        if canonicalUrl == "/"
+            title #{siteName}
+        else
+            title #{pageTitle} : #{siteName}
         
     body
         include ../partials/header

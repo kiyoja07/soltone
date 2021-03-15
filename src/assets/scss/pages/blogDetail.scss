@@ -43,11 +43,11 @@
       width: 70vw;
       margin: 5vh auto;
       .blog-image {
-        width: 70vw;
-        max-width: $pw-max-width;
+        max-width: 70vw;
         height: 37vw;
-        margin: 1vh 0;
-        vertical-align: middle;
+        display: block;
+        margin: 1vh auto;
+        object-fit: scale-down;
       }
       .blog-description {
         margin: 2vh 0;
@@ -99,8 +99,8 @@
       .blog-detail-cotainer {
         width: 90vw;
         .blog-image {
-          width: 90vw;
-          height: 47.5vw;
+          max-width: 90vw;
+          height: 82.5vw;
         }
         .blog-description {
           padding: 0 1vw 0 1vw;
