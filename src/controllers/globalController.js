@@ -86,7 +86,7 @@ export const blogs = async (req, res) => {
     let blogs = await requestAirtable(blogType);
     blogs = blogs.reverse();
     res.render('blogs', {
-      pageTitle: 'Blogs', canonicalUrl: routes.blogs, metaDescription, blogs, kakaoMapApi: [], ogImageUrl,
+      pageTitle: 'Blogs', canonicalUrl: routes.blogs, metaDescription, blogs, ogImageUrl,
     });
   } catch (error) {
     console.log(`res.render("blogs") error : ${error}`);
@@ -96,7 +96,7 @@ export const blogs = async (req, res) => {
 
 // Home
 export const home = async (req, res) => {
-  const metaDescription = '내 손 안의 세무 파트너 솔톤. 법인세 | 소득세 | 재산세 | 기장대행 | 세무상담';
+  const metaDescription = '내 손 안의 세무 파트너 솔톤. 법인세, 소득세, 재산세, 양도세, 상속, 증여 등 각종 세무 상담 및 기장 대행';
   const ogImageUrl = 'https://kr.object.ncloudstorage.com/soltone/images/og_image_soltone.jpg';
   try {
     const maxBlog = 4;

@@ -80,6 +80,6 @@ export const blogDetail = async (req, res) => {
     });
   } catch (error) {
     console.log(`render blogDetail error : ${error}`);
-    res.redirect(routes.home);
+    res.redirect(routes.blogs);
   }
 };

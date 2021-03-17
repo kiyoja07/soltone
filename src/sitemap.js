@@ -43,7 +43,6 @@ const requestAirtable = (baseName) => {
   });
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const generateSitemap = async (req, res) => {
   res.header('Content-Type', 'application/xml');
   res.header('Content-Encoding', 'gzip');
@@ -61,13 +60,13 @@ export const generateSitemap = async (req, res) => {
       {
         url: '/people',
         changefreq: 'monthly',
-        priority: 0.9,
+        priority: 0.6,
         lastmod: Date.now(),
       },
       {
         url: '/blogs',
         changefreq: 'daily',
-        priority: 0.7,
+        priority: 0.4,
         lastmod: Date.now(),
       },
     ];
