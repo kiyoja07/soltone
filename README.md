@@ -1,8 +1,10 @@
+솔톤세무회계 홈페이지
 
+v-1.0.1
+- font를 preload로 수정
+- sitemap priority 수정
+- page metaDescription 수정
 
-
-  // "scripts": {
-  //   "dev:server": "nodemon --exec babel-node init.js --delay 2",
-  //   "dev:assets": "WEBPACK_ENV=development webpack -w",
-  //   "build:assets": "WEBPACK_ENV=prodcution webpack",
-  // },
+v-1.0.0
+- generate sitemap
+- typewriter effect
