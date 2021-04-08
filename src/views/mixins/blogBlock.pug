@@ -2,7 +2,8 @@ mixin blogBlock( blog = {} )
     .blogBlock
         a(href=routes.blogDetail(blog.id))
             .blogBlock__column
-                img(src=blog.image).blogBlock__image
+                //- img(src=blog.image).blogBlock__image
+                img(data-src=blog.image).blogBlock__image.lazyImg
             .blogBlock__column.blogBlock__text
                 h4.blogBlock__title=blog.title
                 p.blogBlock__description=blog.description
