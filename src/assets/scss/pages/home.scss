@@ -14,11 +14,12 @@
     ul {
       font-weight: 600;
       margin: 3vh auto;
+      width: 60vw;
     }
   }
   .img__hero {
     position: relative;
-    background-image: url("https://kr.object.ncloudstorage.com/soltone/images/hero_image.jpg");
+    background-image: url("https://soltone.cdn.ntruss.com/images/hero_image.jpg");
     height: 50vh;
     background-size: cover;
     // background-attachment: fixed;
@@ -30,87 +31,6 @@
       z-index: 1;
     }
   }
-  // .start__kakao {
-  //   width: 100vw;
-  //   margin-left: calc(-50vw + 50%);
-  //   background-color: $background-white;
-  //   .start__kakao__wrapper {
-  //     text-align: center;
-  //     margin: 0 auto;
-  //     max-width: $pw-max-width;
-  //     padding: 4vh 3vw;
-  //     ul {
-  //       font-size: $sub-titile-font-size;
-  //       line-height: 200%;
-  //       margin: 2vh auto;
-  //     }
-  //     p {
-  //       font-size: 20px;
-  //       line-height: 1.75;
-  //     }
-  //     button {
-  //       margin-top: 2vh;
-  //     }
-  //   }
-  // }
-  // .home__trust {
-  //   margin: 0 auto;
-  //   padding: 3vh 3vw;
-  //   .home__trust__message {
-  //     margin: 0 auto;
-  //     padding: 3vh 3vw;
-  //     text-align: center;
-  //     font-size: 28px;
-  //     line-height: 150%;
-  //   }
-  //   ul {
-  //     display: flex;
-  //     align-items: center;
-  //     justify-content: center;
-  //     margin: 3vh auto;
-  //     li {
-  //       margin: auto;
-  //     }
-  //   }
-  //   .home__trust__link {
-  //     margin: 0 auto;
-  //     padding: 0 3vw;
-  //     .img__trust {
-  //       width: 100px;
-  //     }
-  //   }
-  // }
-  // .customer__info {
-  //   margin: 0 auto;
-  //   padding: 3vh 3vw;
-  //   .customer__info--title {
-  //     text-align: center;
-  //     font-size: $sub-titile-font-size;
-  //     line-height: 150%;
-  //     margin: 0 auto;
-  //     padding: 3vh 3vw;
-  //   }
-  //   .customer__info--wrapper {
-  //     display: grid;
-  //     grid-template-columns: repeat(3, 1fr);
-  //     align-items: center;
-  //     .customer__info__column {
-  //       text-align: center;
-  //       font-size: $sub-titile-font-size;
-  //       line-height: 150%;
-  //       margin: 0 auto;
-  //       padding: 3vh 3vw;
-  //       :nth-child(1) {
-  //         width: 100%;
-  //         justify-self: center;
-  //       }
-  //       &:nth-child(2) {
-  //         width: 100%;
-  //         justify-self: center;
-  //       }
-  //     }
-  //   }
-  // }
   .mainMessage-container {
     margin: 2vh auto;
     padding: 5vh 2vw;
@@ -336,8 +256,9 @@
       .mainMessage__column {
         width: 90vw;
         margin: 2vh auto;
+        padding: 3vh 3vw;
         .mainMessage-wrapper {
-          height: 27vh;
+          height: 20vh;
           .mainMessage-body {
             p {
               font-size: 14px;
