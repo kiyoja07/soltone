@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import Airtable from "airtable";
 import routes from "../routes";
 import open from "open";
+// import { openInNewTab } from "../assets/js/openInNewTab";
 import { defaultOgImage } from "../middlewares";
 
 dotenv.config();
@@ -74,6 +75,10 @@ const retrieveAirtable = (id) => {
   });
 };
 
+// const openInNewTab = (url) => {
+//   window.open(url, "_blank").focus();
+// };
+
 // Blog Detail
 export const blogDetail = async (req, res) => {
   const {
@@ -83,7 +88,8 @@ export const blogDetail = async (req, res) => {
     const blog = await retrieveAirtable(id);
     if (blog.link) {
       console.log(`${blog.link}`);
-      await open(blog.link);
+      // openInNewTab(blog.link);
+      await open("www.soltonetax.com");
       // open(blog.link, function (err) {
       //   if (err) throw err;
       // });
