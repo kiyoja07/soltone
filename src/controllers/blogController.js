@@ -88,8 +88,9 @@ export const blogDetail = async (req, res) => {
     const blog = await retrieveAirtable(id);
     if (blog.link) {
       console.log(`${blog.link}`);
+      console.log(typeof blog.link);
       // openInNewTab(blog.link);
-      await open("www.soltonetax.com");
+      await open("https://www.soltonetax.com");
       // open(blog.link, function (err) {
       //   if (err) throw err;
       // });
