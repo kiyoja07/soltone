@@ -82,9 +82,11 @@ export const blogDetail = async (req, res) => {
   try {
     const blog = await retrieveAirtable(id);
     if (blog.link) {
-      open(blog.link, function (err) {
-        if (err) throw err;
-      });
+      console.log(`${blog.link}`);
+      await open(blog.link);
+      // open(blog.link, function (err) {
+      //   if (err) throw err;
+      // });
       res.redirect(routes.blogs);
     } else {
       res.render("blogDetail", {
