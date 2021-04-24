@@ -21,8 +21,6 @@ const airTableApiKey = process.env.AIRTABLE_API_KEY;
 const handelRecord = (record) => {
   const blog = [];
   const maxTextLength = 160;
-  const defaultImageUrl =
-    "https://kr.object.ncloudstorage.com/soltone/images/og_image_soltone.jpg";
   const regExp = /[**]|\\/g;
 
   blog.id = record.id;
@@ -46,7 +44,7 @@ const handelRecord = (record) => {
   } else if (record.get("image5")) {
     blog.image = record.get("image5")[0].url;
   } else {
-    blog.image = defaultImageUrl;
+    blog.image = defaultOgImage;
   }
 
   return blog;
@@ -65,6 +63,7 @@ const requestAirtable = (blogType) => {
           records.forEach((record) => {
             let blog;
             const status = record.get("status");
+            const type = record.get("type");
             if (blogType == "home") {
               if (status == blogType) {
                 blog = handelRecord(record);

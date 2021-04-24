@@ -1,9 +1,9 @@
-import { SitemapStream, streamToPromise } from 'sitemap';
-import { createGzip } from 'zlib';
-import { Readable } from 'stream';
+import { SitemapStream, streamToPromise } from "sitemap";
+import { createGzip } from "zlib";
+import { Readable } from "stream";
 
-import dotenv from 'dotenv';
-import Airtable from 'airtable';
+import dotenv from "dotenv";
+import Airtable from "airtable";
 
 dotenv.config();
 
@@ -18,13 +18,14 @@ const requestAirtable = (baseName) => {
   return new Promise((resolve, reject) => {
     base(baseName)
       .select({
-        view: 'Grid view',
+        view: "Grid view",
       })
       .eachPage(
         (records, fetchNextPage) => {
           records.forEach((record) => {
-            const status = record.get('status');
-            if (status == 'on' || status == 'home') {
+            const status = record.get("status");
+            const type = record.get("type");
+            if ((status == "on" || status == "home") && type == "inside") {
               const { id } = record;
               recordsFromAirtable.push(id);
             }
@@ -38,34 +39,37 @@ const requestAirtable = (baseName) => {
             reject();
           }
           resolve(recordsFromAirtable);
-        },
+        }
       );
   });
 };
 
 export const generateSitemap = async (req, res) => {
-  res.header('Content-Type', 'application/xml');
-  res.header('Content-Encoding', 'gzip');
+  res.header("Content-Type", "application/xml");
+  res.header("Content-Encoding", "gzip");
   // if we have a cached entry send it
   if (sitemap) {
     res.send(sitemap);
     return;
   }
   try {
-    const blogIds = await requestAirtable('blog');
+    const blogIds = await requestAirtable("blog");
     const urls = [
       {
-        url: '/', changefreq: 'weekly', priority: 1.0, lastmod: Date.now(),
+        url: "/",
+        changefreq: "weekly",
+        priority: 1.0,
+        lastmod: Date.now(),
       },
       {
-        url: '/people',
-        changefreq: 'monthly',
+        url: "/people",
+        changefreq: "monthly",
         priority: 0.6,
         lastmod: Date.now(),
       },
       {
-        url: '/blogs',
-        changefreq: 'daily',
+        url: "/blogs",
+        changefreq: "daily",
         priority: 0.4,
         lastmod: Date.now(),
       },
@@ -74,7 +78,7 @@ export const generateSitemap = async (req, res) => {
     for (const id of blogIds) {
       const links = {
         url: `/blogs/${id}`,
-        changefreq: 'daily',
+        changefreq: "daily",
         priority: 0.8,
         lastmod: Date.now(),
       };
@@ -82,7 +86,7 @@ export const generateSitemap = async (req, res) => {
     }
 
     const smStream = new SitemapStream({
-      hostname: 'https://soltonetax.com/',
+      hostname: "https://soltonetax.com/",
     });
     const pipeline = smStream.pipe(createGzip());
 
@@ -93,7 +97,7 @@ export const generateSitemap = async (req, res) => {
     // make sure to attach a write stream such as streamToPromise before ending
     // smStream.end();
     // stream write the response
-    pipeline.pipe(res).on('error', (e) => {
+    pipeline.pipe(res).on("error", (e) => {
       throw e;
     });
   } catch (e) {
