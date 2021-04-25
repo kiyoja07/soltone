@@ -26,7 +26,14 @@ const handelRecord = (record) => {
   blog.id = record.id;
   blog.title = record.get("title");
 
-  // let description1 = record.get('description1').replace(/(\r\n\t|\n|\r\t)/gm,"");
+  blog.type = record.get("type");
+
+  if (blog.type == "inside") {
+    blog.link = null;
+  } else if (blog.type == "outside") {
+    blog.link = record.get("link");
+  }
+
   let description = record.get("description1");
   if (description.length >= maxTextLength) {
     description = `${description.substr(0, maxTextLength)} ...`;
@@ -63,20 +70,18 @@ const requestAirtable = (blogType) => {
           records.forEach((record) => {
             let blog;
             const status = record.get("status");
-            const type = record.get("type");
             if (blogType == "home") {
-              if (status == blogType) {
+              if (status == "home") {
                 blog = handelRecord(record);
                 blogsFromAirtable.push(blog);
               }
             } else if (blogType == "on") {
-              if (status == blogType || status == "home") {
+              if (status == "on" || status == "home") {
                 blog = handelRecord(record);
                 blogsFromAirtable.push(blog);
               }
             }
           });
-
           fetchNextPage();
         },
         (err) => {

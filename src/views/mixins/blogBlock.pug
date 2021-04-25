@@ -1,15 +1,18 @@
 mixin blogBlock( blog = {} )
     .blogBlock
-        a(href=routes.blogDetail(blog.id))
-            .blogBlock__column
-                //- img(src=blog.image).blogBlock__image
-                img(data-src=blog.image alt=blog.title).blogBlock__image.lazyImg
-            .blogBlock__column.blogBlock__text
-                h4.blogBlock__title=blog.title
-                p.blogBlock__description=blog.description
-                p.blogBlock__readMore Read More
-    
-    //- if blog.image.length > 0
-    //-     each item in blog.image
-    //-         p= item
-    //-         img(src=item)
+        if blog.link == null
+            a(href=routes.blogDetail(blog.id))
+                .blogBlock__column
+                    img(data-src=blog.image alt=blog.title).blogBlock__image.lazyImg
+                .blogBlock__column.blogBlock__text
+                    h4.blogBlock__title=blog.title
+                    p.blogBlock__description=blog.description
+                    p.blogBlock__readMore Read More
+        else
+            a(href=blog.link target="_blank" rel="noopener noreferrer external")
+                .blogBlock__column
+                    img(data-src=blog.image alt=blog.title).blogBlock__image.lazyImg
+                .blogBlock__column.blogBlock__text
+                    h4.blogBlock__title=blog.title
+                    p.blogBlock__description=blog.description
+                    p.blogBlock__readMore Read More

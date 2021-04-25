@@ -51,12 +51,13 @@ block content
                     a(href=routes.people) 자세히 보기 &nbsp;&nbsp; >
         .home__blog
             .home__blog__wrapper
-                each item in blogs
+                each blog in blogs
                     +blogBlock({
-                        id: item.id,
-                        title: item.title,
-                        description: item.description,
-                        image: item.image,
+                        id: blog.id,
+                        title: blog.title,
+                        description: blog.description,
+                        image: blog.image,
+                        link: blog.link
                     })
             .home__blog__browseAll
                 a(href=routes.blogs) 블로그 모두 보기 &nbsp;&nbsp; >
