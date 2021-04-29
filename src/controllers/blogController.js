@@ -18,6 +18,22 @@ const handleImage = (images) => {
   return imageUrl;
 };
 
+const makeOgImage = (record) => {
+  if (record.get("image1")) {
+    return record.get("image1")[0].url;
+  } else if (record.get("image2")) {
+    return record.get("image2")[0].url;
+  } else if (record.get("image3")) {
+    return record.get("image3")[0].url;
+  } else if (record.get("image4")) {
+    return record.get("image4")[0].url;
+  } else if (record.get("image5")) {
+    return record.get("image5")[0].url;
+  } else {
+    return defaultOgImage;
+  }
+};
+
 const retrieveAirtable = (id) => {
   const base = new Airtable({ apiKey: airTableApiKey }).base(airTableBaseId);
   const blog = [];
@@ -35,6 +51,8 @@ const retrieveAirtable = (id) => {
         blog.description4 = record.get("description4").replace(regExp, "");
         blog.description5 = record.get("description5").replace(regExp, "");
 
+        console.log(record.get("image2"));
+
         blog.image1 = handleImage(record.get("image1"));
         blog.image2 = handleImage(record.get("image2"));
         blog.image3 = handleImage(record.get("image3"));
@@ -44,24 +62,13 @@ const retrieveAirtable = (id) => {
         blog.tags = record.get("tags");
         blog.postdate = record.get("postdate");
 
-        if (record.get("image1")) {
-          blog.ogImageUrl = record.get("image1")[0].url;
-        } else if (record.get("image2")) {
-          blog.ogImageUrl = record.get("image2")[0].url;
-        } else if (record.get("image3")) {
-          blog.ogImageUrl = record.get("image3")[0].url;
-        } else if (record.get("image4")) {
-          blog.ogImageUrl = record.get("image4")[0].url;
-        } else if (record.get("image5")) {
-          blog.ogImageUrl = record.get("image5")[0].url;
-        } else {
-          blog.ogImageUrl = defaultOgImage;
-        }
+        blog.ogImageUrl = makeOgImage(record);
       }
       if (err) {
         console.error(err);
         reject();
       }
+      console.log(blog);
       resolve(blog);
     });
   });
