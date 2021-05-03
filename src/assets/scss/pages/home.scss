@@ -14,7 +14,7 @@
     ul {
       font-weight: 600;
       margin: 3vh auto;
-      width: 60vw;
+      width: 65vw;
     }
   }
   .img__hero {
@@ -54,11 +54,13 @@
     }
     .mainMessage__column {
       width: 30vw;
+      max-width: 475px;
       margin: 0 auto;
       padding: 4vh 3vw;
       background-color: $background-yellow;
       .mainMessage-wrapper {
-        height: 30vh;
+        height: 25vh;
+        max-height: 200px;
         .mainMessage-title {
           text-align: center;
           font-size: $sub-titile-font-size;
@@ -186,7 +188,9 @@
 
   .home__lastMessage {
     width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    max-width: $pw-max-width;
+    margin: 0 auto;
+    // margin-left: calc(-50vw + 50%);
     padding: 5vh 0;
     background-color: $background-blue;
     .home__lastMessage__wrapper {
