@@ -68,7 +68,6 @@ const retrieveAirtable = (id) => {
         console.error(err);
         reject();
       }
-      console.log(blog);
       resolve(blog);
     });
   });
