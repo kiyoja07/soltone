@@ -51,8 +51,6 @@ const retrieveAirtable = (id) => {
         blog.description4 = record.get("description4").replace(regExp, "");
         blog.description5 = record.get("description5").replace(regExp, "");
 
-        console.log(record.get("image2"));
-
         blog.image1 = handleImage(record.get("image1"));
         blog.image2 = handleImage(record.get("image2"));
         blog.image3 = handleImage(record.get("image3"));
