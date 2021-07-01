@@ -26,7 +26,9 @@ app.use(localsMiddleware);
 
 app.get("/robots.txt", (req, res) => {
   res.type("text/plain");
-  res.send("User-agent: *\nAllow: /\nDisallow: /admin/\n");
+  res.send(
+    "User-agent: *\nAllow: /\nSitemap: https://soltonetax.com/sitemap.xml"
+  );
 });
 
 app.use(favicon(path.join(__dirname, "public/images", "favicon.ico")));
