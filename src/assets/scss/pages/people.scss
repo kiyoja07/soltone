@@ -3,6 +3,7 @@
   background-color: $background-yellow;
   margin: 0 auto;
   padding-bottom: 5vh;
+  color: $soltone-black;
   .page-title {
     text-align: center;
     margin: 5vh 0;
@@ -16,59 +17,55 @@
       line-height: 1.75;
     }
   }
-  .people-introduce {
-    margin: 0 auto;
-    .people-image {
-      text-align: center;
-
-      picture {
-        img {
+  .people-image {
+    text-align: center;
+    picture {
+      img {
         // 사진 원본 : 248px, 319px
         width: 200px;
         height: 257.258px;
         border-radius: 5px;
-        }
-      }
-
-      h3 {
-        font-weight: bold;
-        line-height: 3;
       }
     }
-    .people-intro {
-      margin: 5vh 30vw;
-      p {
-        line-height: 1.75;
-      }
+    h3 {
+      font-weight: bold;
+      line-height: 3;
+      color: $soltone-black;
     }
-    .people-detail {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-areas: "left-column right-column";
+  }
+  .people-intro {
+    margin: 5vh 30vw;
+    p {
+      line-height: 1.75;
+    }
+  }
+  .people-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "left-column right-column";
+    margin: 0 auto;
+    padding: 3vh 0;
+    width: 40vw;
+    justify-self: center;
+    //   background-color: $background-yellow;
+    ul {
+      display: flex;
+      margin: 1vh auto;
+    }
+    h3 {
+      width: initial;
+      border-bottom: 2px solid #f1574b;
+      display: inline-block;
+      padding-bottom: 3px;
+    }
+    .people-eductaion {
+      grid-area: left-column;
+      // width: 100px;
+    }
+    .people-career {
       margin: 0 auto;
-      padding: 3vh 0;
-      width: 40vw;
-      justify-self: center;
-      //   background-color: $background-yellow;
-      ul {
-        display: flex;
-        margin: 1vh auto;
-      }
-      h3 {
-        width: initial;
-        border-bottom: 2px solid #f1574b;
-        display: inline-block;
-        padding-bottom: 3px;
-      }
-      .people-eductaion {
-        grid-area: left-column;
-        // width: 100px;
-      }
-      .people-career {
-        margin: 0 auto;
-        padding-bottom: 5vh;
-        grid-area: right-column;
-      }
+      padding-bottom: 5vh;
+      grid-area: right-column;
     }
   }
   .people-home-btn {
@@ -97,38 +94,35 @@
         font-size: 14px;
       }
     }
-    .people-introduce {
-      .people-intro {
-        margin: 5vh 10vw;
-        p {
-          font-size: 14px;
-        }
+    .people-intro {
+      margin: 5vh 10vw;
+      p {
+        font-size: 14px;
       }
-      .people-detail {
-        width: 80vw;
-        padding: 2vh 0 7vh 0;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-areas: "left-column left-column" "right-column right-column";
-        .people-eductaion {
-          margin: 0 auto;
-          ul {
-            h3 {
-              font-size: 14px;
-            }
-            p {
-              font-size: 14px;
-            }
+    }
+    .people-detail {
+      width: 80vw;
+      padding: 2vh 0 7vh 0;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas: "left-column left-column" "right-column right-column";
+      .people-eductaion {
+        ul {
+          h3 {
+            font-size: 14px;
+          }
+          p {
+            font-size: 14px;
           }
         }
-        .people-career {
-          padding-bottom: 0;
-          ul {
-            h3 {
-              font-size: 14px;
-            }
-            p {
-              font-size: 14px;
-            }
+      }
+      .people-career {
+        padding-bottom: 0;
+        ul {
+          h3 {
+            font-size: 14px;
+          }
+          p {
+            font-size: 14px;
           }
         }
       }

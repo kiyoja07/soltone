@@ -55,106 +55,72 @@
     .mainMessage__column {
       width: 30vw;
       max-width: 475px;
+      height: 250px;
       margin: 0 auto;
       padding: 4vh 3vw;
       background-color: $background-yellow;
-      .mainMessage-wrapper {
-        height: 25vh;
-        max-height: 200px;
-        .mainMessage-title {
-          text-align: center;
-          font-size: $sub-titile-font-size;
-          padding: 2vh 0;
-          h3 {
-            width: initial;
-            border-bottom: 2px solid #f1574b;
-            display: inline-block;
-            padding-bottom: 3px;
-          }
-        }
-        .mainMessage-body {
-          margin: 3vh 0 0 0;
-          p {
-            line-height: 1.75;
-            font-size: 16px;
-          }
-        }
-      }
-    }
-  }
-  .people-container {
-    background-color: $background-white;
-    margin: 0 auto;
-    .page-title {
-      text-align: center;
-      margin: 2vh 0;
-      font-size: 30px;
-      letter-spacing: 1.1px;
-    }
-    .people-description {
-      text-align: center;
-      margin: 5vh 0;
-      p {
-        line-height: 1.75;
-      }
-    }
-    .people-introduce {
-      margin: 0 auto;
-      .people-image {
+      color: $soltone-black;
+      .mainMessage-title {
         text-align: center;
-        img {
-          border-radius: 5px;
-          width: 200px;
-        }
-        h3 {
-          font-weight: bold;
-          line-height: 3;
-        }
-      }
-      .people-intro {
-        margin: 5vh 30vw;
-        p {
-          line-height: 1.75;
-        }
-      }
-      .people-detail-btn {
-        margin: 5vh auto;
-        text-align: center;
-        a {
-          display: block;
-          color: #ff5567;
-          letter-spacing: 1.3px;
-          font-size: 16px;
-          font-weight: 700;
-        }
-      }
-      .people-detail {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "left-column right-column";
-        margin: 0 auto;
-        padding: 5vh 0 5vh 0;
-        width: 40vw;
-        justify-self: center;
-        ul {
-          display: flex;
-          margin: 1vh auto;
-        }
+        font-size: $sub-titile-font-size;
+        padding: 2vh 0;
+        letter-spacing: 1.1px;
         h3 {
           width: initial;
           border-bottom: 2px solid #f1574b;
           display: inline-block;
           padding-bottom: 3px;
         }
-        .people-education {
-          grid-area: left-column;
-          // width: 100px;
-        }
-        .people-career {
-          margin: 0 auto;
-          padding-bottom: 5vh;
-          grid-area: right-column;
-        }
+      }
+      .mainMessage-body {
+        margin: 3vh 0 0 0;
+        line-height: 1.75;
+        font-size: 16px;
+      }
+    }
+  }
+  .people__container {
+    background-color: $background-white;
+    margin: 5vh auto 0 auto;
+    .people--title {
+      text-align: center;
+      margin: 2vh 0;
+      font-size: $title-font-size;
+      letter-spacing: 1.1px;
+      color: $soltone-black;
+      span {
+        width: initial;
+        border-bottom: 2px solid #f1574b;
+        display: inline-block;
+        padding-bottom: 3px;
+      }
+    }
+    .people--image {
+      text-align: center;
+      img {
+        border-radius: 5px;
+        width: 200px;
+      }
+      h1 {
+        // font-weight: bold;
+        line-height: 3;
+        color: $soltone-black;
+      }
+    }
+    .people--intro {
+      margin: 5vh 30vw;
+      line-height: 1.75;
+      color: $soltone-black;
+    }
+    .people--detail--btn {
+      margin: 5vh auto;
+      text-align: center;
+      a {
+        display: block;
+        color: #ff5567;
+        letter-spacing: 1.3px;
+        font-size: 16px;
+        font-weight: 700;
       }
     }
   }
@@ -190,25 +156,23 @@
     width: 100vw;
     max-width: $pw-max-width;
     margin: 0 auto;
-    // margin-left: calc(-50vw + 50%);
     padding: 5vh 0;
     background-color: $background-blue;
-    .home__lastMessage__wrapper {
-      margin: 0 auto;
-      max-width: $pw-max-width;
-      font-size: $sub-titile-font-size;
-      text-align: center;
-      line-height: 200%;
-    }
+    font-size: $sub-titile-font-size;
+    text-align: center;
+    line-height: 200%;
+    letter-spacing: 1.1px;
+    color: $soltone-black;
   }
   .home__contact {
     margin: 0 auto;
     padding: 5vh 0;
-    // background-color: $background-yellow;
     .home__contact--title {
       text-align: center;
-      font-size: $sub-titile-font-size;
+      font-size: $title-font-size;
       padding: 2vh 0;
+      letter-spacing: 1.1px;
+      color: $soltone-black;
       span {
         width: initial;
         border-bottom: 2px solid #f1574b;
@@ -238,8 +202,13 @@
         .home__contact__name {
           font-size: 16px;
         }
+        .home__contact--logo {
+          width: 200px;
+          margin: 0 0 20px 0;
+        }
         .home__contact__detail {
           font-size: 16px;
+          color: $soltone-black;
         }
       }
     }
@@ -258,33 +227,34 @@
       grid-template-rows: repeat(3, 1fr);
       grid-template-areas: "left-column left-column left-column" "center-column center-column center-column" "right-column right-column right-column";
       .mainMessage__column {
-        width: 90vw;
+        width: 88vw;
+        height: 200px;
         margin: 2vh auto;
         padding: 3vh 3vw;
-        .mainMessage-wrapper {
-          height: 20vh;
-          .mainMessage-body {
-            p {
-              font-size: 14px;
-            }
-          }
+        .mainMessage-body {
+          font-size: 14px;
         }
       }
     }
     .home__contact {
       .home__contact__container {
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: 2fr 1fr;
         grid-template-areas: "left-column left-column" "right-column right-column";
         .home__contact__info {
           margin-left: 5vw;
+          ul {
+            margin: 2vh auto;
+          }
+          .home__contact--logo {
+            display: none;
+          }
         }
       }
     }
-    .people-container {
-      .people-introduce {
-        .people-intro {
-          margin: 5vh 10vw;
-        }
+    .people__container {
+      margin: 3vh auto 0 auto;
+      .people--intro {
+        margin: 5vh 10vw;
       }
     }
     .home__blog {
@@ -294,9 +264,11 @@
       }
     }
     .home__lastMessage {
-      .home__lastMessage__wrapper {
-        h6 {
-          font-size: 14px;
+      font-size: 14px;
+    }
+    .home__contact {
+      .home__contact__container {
+        .home__contact__info {
         }
       }
     }
