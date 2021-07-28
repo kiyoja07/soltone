@@ -1,114 +1,112 @@
 .blogDetail-container {
   background-color: white;
-  width: 100%;
+  width: 70vw;
+  max-width: $pw-max-width;
   min-height: 100vh;
   padding-top: $header-height;
-  .blogDetail-wrapper {
+  padding-bottom: 5vh;
+  margin: 0 auto 5vh auto;
+  .blog-title {
+    padding-top: 2vh;
+    margin: 5vh 0 4vh 0;
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  .blog-addition-container {
     width: 70vw;
-    margin: 0 auto 5vh auto;
-    max-width: $pw-max-width;
-    padding: 5vh 0;
-    .blog-title-container {
-      margin: 2em 0;
-      text-align: center;
-      .blog-title {
-        font-size: 38px;
-        font-weight: bold;
-        line-height: 1.4;
-      }
-    }
-    .blog-addition-container {
-      width: 70vw;
-      margin: 2vh auto 3vh auto;
-      text-align: right;
-      color: #767676;
-    }
-    .blog-tag-container {
-      text-align: center;
-      margin-bottom: 1.625em;
-      .blog-tag {
-        display: inline-block;
-        position: relative;
-        margin: 10px;
-        label {
-          display: block;
-          border-radius: 16px;
-          background-color: $background-blue;
-          padding: 7px 18px;
-          font-size: 18px;
-        }
-      }
-    }
-    .blog-detail-cotainer {
-      width: 70vw;
-      margin: 5vh auto;
-      .blog-image {
-        max-width: 70vw;
-        height: 37vw;
+    margin: 2vh auto 3vh auto;
+    padding-right: 5px;
+    text-align: right;
+    color: #767676;
+  }
+  .blog-tag-container {
+    text-align: center;
+    margin-bottom: 1.625em;
+    .blog-tag {
+      display: inline-block;
+      position: relative;
+      margin: 10px;
+      label {
         display: block;
-        margin: 1vh auto;
-        object-fit: scale-down;
-      }
-      .blog-description {
-        margin: 2vh 0;
-        padding: 0 4vw 0 4vw;
-        line-height: 1.6;
-        // 내용이 width를 넘을 경우, 자동으로 줄바꿈
-        white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
-        white-space: -pre-wrap; /* Opera */
-        white-space: -o-pre-wrap; /* Opera */
-        white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
-        word-wrap: break-word; /* IE 5.5+ */
+        border-radius: 16px;
+        background-color: $background-blue;
+        padding: 7px 18px;
+        font-size: 18px;
       }
     }
-    .blogDetail__browseAll {
-      margin: 5vh auto 1vh auto;
-      text-align: center;
-      cursor: pointer;
-      a {
-        display: block;
-        color: #ff5567;
-        letter-spacing: 1.3px;
-        font-size: 16px;
-        font-weight: 700;
-      }
+  }
+  .blog-detail-cotainer {
+    width: 70vw;
+    margin: 5vh auto;
+    .blog-image {
+      max-width: 70vw;
+      height: 37vw;
+      display: block;
+      margin: 1vh auto;
+      object-fit: scale-down;
+    }
+    .blog-description {
+      margin: 2vh 0;
+      padding: 0 4vw 0 4vw;
+      line-height: 1.6;
+      // 내용이 width를 넘을 경우, 자동으로 줄바꿈
+      white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+      white-space: -pre-wrap; /* Opera */
+      white-space: -o-pre-wrap; /* Opera */
+      white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+      word-wrap: break-word; /* IE 5.5+ */
+    }
+  }
+  .blogDetail__browseAll {
+    margin: 5vh auto 1vh auto;
+    text-align: center;
+    cursor: pointer;
+    a {
+      display: block;
+      color: #ff5567;
+      letter-spacing: 1.3px;
+      font-size: 16px;
+      font-weight: 700;
     }
   }
 }
 
 @media (max-width: 768px) {
   .blogDetail-container {
-    .blogDetail-wrapper {
+    width: 90vw;
+    .blog-title {
+      font-size: 28px;
+    }
+    .blog-addition-container {
       width: 90vw;
-      .blog-title-container {
-        .blog-title {
-          font-size: 28px;
+      font-size: 14px;
+    }
+    .blog-tag-container {
+      text-align: left;
+      margin-bottom: 1.625em;
+      .blog-tag {
+        margin: 6px;
+        label {
+          padding: 6px 14px;
+          font-size: 14px;
         }
       }
-      .blog-addition-container {
-        width: 90vw;
-        font-size: 14px;
+    }
+    .blog-detail-cotainer {
+      width: 90vw;
+      margin: 3vh auto 5vh auto;
+      .blog-image {
+        max-width: 90vw;
+        height: 82.5vw;
       }
-      .blog-tag-container {
-        .blog-tag {
-          label {
-            font-size: 16px;
-          }
-        }
+      .blog-description {
+        padding: 0 1vw 0 1vw;
       }
-      .blog-detail-cotainer {
-        width: 90vw;
-        .blog-image {
-          max-width: 90vw;
-          height: 82.5vw;
-        }
-        .blog-description {
-          padding: 0 1vw 0 1vw;
-        }
-      }
-      .blogDetail__browseAll {
-        a {
-        }
+    }
+    .blogDetail__browseAll {
+      a {
       }
     }
   }

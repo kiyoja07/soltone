@@ -1,134 +1,97 @@
-.people-container {
+.people__container {
   padding-top: $header-height;
   background-color: $background-yellow;
-  margin: 0 auto;
-  padding-bottom: 5vh;
   color: $soltone-black;
-  .page-title {
-    text-align: center;
-    margin: 5vh 0;
-    font-size: 30px;
-    letter-spacing: 1.1px;
-  }
-  .people-description {
-    text-align: center;
-    margin: 5vh 0;
-    p {
+  width: 100%;
+  .people__wrapper {
+    margin: 0 auto;
+    padding-bottom: 7vh;
+    width: 45%;
+    .page--title {
+      text-align: center;
+      margin: 5vh 0;
+      font-size: 30px;
+      letter-spacing: 1.1px;
+    }
+    .people-description {
+      text-align: center;
+      margin: 5vh 0;
       line-height: 1.75;
     }
-  }
-  .people-image {
-    text-align: center;
-    picture {
-      img {
-        // 사진 원본 : 248px, 319px
-        width: 200px;
-        height: 257.258px;
-        border-radius: 5px;
+    .people-image {
+      text-align: center;
+      picture {
+        img {
+          // 사진 원본 : 248px, 319px
+          width: 200px;
+          height: 257.258px;
+          border-radius: 5px;
+        }
+      }
+      h1 {
+        font-weight: bold;
+        line-height: 3;
       }
     }
-    h3 {
-      font-weight: bold;
-      line-height: 3;
-      color: $soltone-black;
+    .people-intro {
+      margin: 5vh auto;
+      p {
+        line-height: 1.75;
+        margin: 2vh 0;
+      }
     }
-  }
-  .people-intro {
-    margin: 5vh 30vw;
-    p {
-      line-height: 1.75;
-    }
-  }
-  .people-detail {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "left-column right-column";
-    margin: 0 auto;
-    padding: 3vh 0;
-    width: 40vw;
-    justify-self: center;
-    //   background-color: $background-yellow;
-    ul {
-      display: flex;
-      margin: 1vh auto;
-    }
-    h3 {
-      width: initial;
-      border-bottom: 2px solid #f1574b;
-      display: inline-block;
-      padding-bottom: 3px;
-    }
-    .people-eductaion {
-      grid-area: left-column;
-      // width: 100px;
-    }
-    .people-career {
+    .people--eductaion {
       margin: 0 auto;
-      padding-bottom: 5vh;
-      grid-area: right-column;
     }
-  }
-  .people-home-btn {
-    margin: 3vh auto;
-    text-align: center;
-    a {
-      display: block;
-      color: #ff5567;
-      letter-spacing: 1.3px;
-      font-size: 16px;
-      font-weight: 700;
+    .people--career {
+      margin: 4vh auto;
+      padding-bottom: 5vh;
+    }
+    .people--detail {
+      justify-self: center;
+      h3 {
+        width: initial;
+        border-bottom: 2px solid #f1574b;
+        display: inline-block;
+        padding-bottom: 3px;
+        margin-bottom: 2vh;
+      }
+      p {
+        margin: 1.2vh 0;
+        line-height: 1.25;
+      }
+    }
+    .people-home-btn {
+      margin: 3vh auto;
+      text-align: center;
+      a {
+        display: block;
+        color: #ff5567;
+        letter-spacing: 1.3px;
+        font-size: 16px;
+        font-weight: 700;
+      }
     }
   }
 }
 
 @media (max-width: 768px) {
-  .people-container {
-    .page-title {
-      h1 {
+  .people__container {
+    .people__wrapper {
+      width: 85%;
+      padding-bottom: 5vh;
+      .page--title {
         font-size: 24px;
       }
-    }
-    padding-bottom: 3vh;
-    .people-description {
-      p {
+      .people-description {
         font-size: 14px;
       }
-    }
-    .people-intro {
-      margin: 5vh 10vw;
-      p {
+      .people-intro {
         font-size: 14px;
       }
-    }
-    .people-detail {
-      width: 80vw;
-      padding: 2vh 0 7vh 0;
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-areas: "left-column left-column" "right-column right-column";
-      .people-eductaion {
-        ul {
-          h3 {
-            font-size: 14px;
-          }
-          p {
-            font-size: 14px;
-          }
-        }
+      .people--detail {
+        font-size: 14px;
       }
-      .people-career {
-        padding-bottom: 0;
-        ul {
-          h3 {
-            font-size: 14px;
-          }
-          p {
-            font-size: 14px;
-          }
-        }
-      }
-    }
-    .people-home-btn {
-      margin: 2vh auto;
     }
   }
 }
