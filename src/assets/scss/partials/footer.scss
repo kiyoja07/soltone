@@ -13,15 +13,24 @@
     grid-template-areas: "left-column right-column";
     align-items: center;
     .footer__right {
-      margin-left: 2em;
+      // margin-left: 2em;
+      margin: 60px 30px 30px;
       grid-area: right-column;
     }
     .footer__left {
-      margin-left: 2em;
+      // margin-left: 2em;
+      margin: 0 auto;
       grid-area: left-column;
+      width: 200px;
+      .footer__slogan {
+        width: 100%;
+        justify-self: center;
+        // display: flex;
+        font-weight: 600;
+        margin: 2vh auto;
+      }
     }
     .footer__column {
-      margin: 60px 30px 30px;
       i {
         color: black;
         font-size: 30px;
@@ -30,10 +39,11 @@
         width: 100%;
         justify-self: center;
       }
-      .footer__slogan {
-        width: 100%;
-        justify-self: center;
-      }
+      // .footer__slogan {
+      //   width: 100%;
+      //   justify-self: center;
+      // }
+
       ul {
         display: flex;
         font-weight: 600;
@@ -83,7 +93,10 @@
     .footer__wrapper {
       grid-template-rows: repeat(2, 1fr);
       grid-template-areas: "left-column left-column" "right-column right-column";
-      .footer__column {
+      .footer__left {
+        margin: 0 auto;
+      }
+      .footer__right {
         margin: 5px 1px 1px;
         .company__detail {
           font-size: 14px;
