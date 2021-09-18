@@ -195,20 +195,22 @@
       .home__contact__info {
         padding-left: 2vw;
         grid-area: right-column;
-        ul {
-          display: flex;
-          margin: 3vh auto;
-        }
         .home__contact__name {
           font-size: 16px;
         }
         .home__contact--logo {
           width: 200px;
-          margin: 0 0 20px 0;
+          margin: 3vh 0 3vh 0;
+        }
+        .home__contact--map {
+          width: 40px;
+          height: 40px;
+          margin-right: 25px;
         }
         .home__contact__detail {
           font-size: 16px;
           color: $soltone-black;
+          margin: 3vh auto;
         }
       }
     }
@@ -238,11 +240,12 @@
     }
     .home__contact {
       .home__contact__container {
-        grid-template-rows: 2fr 1fr;
+        grid-template-rows: 1.6fr 1fr;
         grid-template-areas: "left-column left-column" "right-column right-column";
+        margin: 0 auto;
         .home__contact__info {
           margin-left: 5vw;
-          ul {
+          .home__contact__detail {
             margin: 2vh auto;
           }
           .home__contact--logo {
