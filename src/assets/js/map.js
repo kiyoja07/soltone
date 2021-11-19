@@ -17,8 +17,6 @@ if (mapContainer) {
     position: coords,
   });
 
-  console.log(coords);
-
   // 인포윈도우로 장소에 대한 설명을 표시
   const infowindow = new kakao.maps.InfoWindow({
     content: '<div class="mapMarker">솔톤세무회계</div>',

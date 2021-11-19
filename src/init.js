@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import "./db";
 import app from "./app";
 
-import "./models/Post";
+import "./models/Blog";
 
 dotenv.config();
 

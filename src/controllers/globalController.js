@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
-import Airtable from "airtable";
 import routes from "../routes";
+import Blog from "../models/Blog";
 import {
   defaultMetaDescription,
   defaultOgImage,
@@ -14,93 +14,62 @@ dotenv.config();
 
 const mapAppKey = process.env.MAP_APP_KEY;
 const kakaoMapApi = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&libraries=services,clusterer,drawing`;
-const airTableBaseId = process.env.AIRTABLE_BASE_ID;
-const airTableApiKey = process.env.AIRTABLE_API_KEY;
 
-// Blogs
-const handelRecord = (record) => {
-  const blog = [];
-  const maxTextLength = 160;
-  const regExp = /[**]|\\/g;
+const handleDescription = (descriptionRaw) => {
+  const maxDescriptionLength = 160;
+  const regExp = /<[^>]*>/g;
 
-  blog.id = record.id;
-  blog.title = record.get("title");
+  let description = descriptionRaw.replaceAll(regExp, "&nbsp");
 
-  blog.type = record.get("type");
-
-  if (blog.type == "inside") {
-    blog.link = null;
-  } else if (blog.type == "outside") {
-    blog.link = record.get("link");
+  if (description.length >= maxDescriptionLength) {
+    description = `${description.substr(0, maxDescriptionLength)} ...`;
   }
 
-  let description = record.get("description1");
-  if (description.length >= maxTextLength) {
-    description = `${description.substr(0, maxTextLength)} ...`;
-  }
-  blog.description = description.replace(regExp, "");
-
-  if (record.get("image1")) {
-    blog.image = record.get("image1")[0].url;
-  } else if (record.get("image2")) {
-    blog.image = record.get("image2")[0].url;
-  } else if (record.get("image3")) {
-    blog.image = record.get("image3")[0].url;
-  } else if (record.get("image4")) {
-    blog.image = record.get("image4")[0].url;
-  } else if (record.get("image5")) {
-    blog.image = record.get("image5")[0].url;
-  } else {
-    blog.image = defaultOgImage;
-  }
-
-  return blog;
+  return description;
 };
 
-const requestAirtable = (blogType) => {
-  const base = new Airtable({ apiKey: airTableApiKey }).base(airTableBaseId);
-  const blogsFromAirtable = [];
-  return new Promise((resolve, reject) => {
-    base("blog")
-      .select({
-        view: "Grid view",
-      })
-      .eachPage(
-        (records, fetchNextPage) => {
-          records.forEach((record) => {
-            let blog;
-            const status = record.get("status");
-            if (blogType == "home") {
-              if (status == "home") {
-                blog = handelRecord(record);
-                blogsFromAirtable.push(blog);
-              }
-            } else if (blogType == "on") {
-              if (status == "on" || status == "home") {
-                blog = handelRecord(record);
-                blogsFromAirtable.push(blog);
-              }
-            }
-          });
-          fetchNextPage();
-        },
-        (err) => {
-          if (err) {
-            console.error(err);
-            reject();
-          }
-          resolve(blogsFromAirtable);
-        }
-      );
-  });
+const handleBlogsRaw = (blogsRaw) => {
+  let handeledBlogs = [];
+
+  for (let blogRaw of blogsRaw) {
+    let blog = {};
+
+    blog.id = blogRaw._id;
+    blog.type = blogRaw.type;
+    blog.title = blogRaw.title;
+    if (blogRaw.image1) {
+      blog.image = blogRaw.image1;
+    } else if (blogRaw.image2) {
+      blog.image = blogRaw.image2;
+    } else {
+      blog.image = defaultOgImage;
+    }
+
+    if (blogRaw.description1) {
+      blog.description = handleDescription(blogRaw.description1);
+    } else if (blogRaw.description2) {
+      blog.description = handleDescription(blogRaw.description2);
+    }
+
+    if (blogRaw.outlink) {
+      blog.outlink = blogRaw.outlink;
+    }
+
+    handeledBlogs.unshift(blog);
+  }
+  return handeledBlogs;
 };
 
 // Blogs
 export const blogs = async (req, res) => {
   try {
-    const blogType = "on";
-    let blogs = await requestAirtable(blogType);
-    blogs = blogs.reverse();
+    let blogs = await Blog.find(
+      { status: { $in: ["on", "home"] } },
+      { type: 1, title: 1, image1: 1, description1: 1, image2: 1, outlink: 1 }
+    );
+
+    blogs = handleBlogsRaw(blogs);
+
     res.render("blogs", {
       pageTitle: blogsPageTitle,
       canonicalUrl: routes.blogs,
@@ -118,9 +87,15 @@ export const blogs = async (req, res) => {
 export const home = async (req, res) => {
   try {
     const maxBlog = 4;
-    const blogType = "home";
-    let blogs = await requestAirtable(blogType);
-    blogs = blogs.reverse().slice(0, maxBlog);
+
+    let blogs = await Blog.find(
+      { status: "home" },
+      { type: 1, title: 1, image1: 1, description1: 1, image2: 1, outlink: 1 }
+    );
+
+    blogs = handleBlogsRaw(blogs);
+    blogs = blogs.slice(0, maxBlog);
+
     res.render("home", {
       canonicalUrl: routes.home,
       metaDescription: defaultMetaDescription,

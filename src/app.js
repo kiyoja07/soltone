@@ -57,4 +57,8 @@ app.use(routes.home, globalRouter);
 app.use(routes.blogs, blogRouter);
 app.get(routes.sitemap, generateSitemap);
 
+app.use(function (req, res, next) {
+  res.status(404).redirect(routes.home);
+});
+
 export default app;
