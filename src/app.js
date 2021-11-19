@@ -3,6 +3,9 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import path from "path";
+import mongoose from "mongoose";
+import session from "express-session";
+import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import { generateSitemap } from "./sitemap";
 import routes from "./routes";
@@ -12,6 +15,8 @@ import favicon from "serve-favicon";
 
 const app = express();
 
+const CookieStore = MongoStore(session);
+
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
 // app.use("/uploads", express.static("uploads"));
@@ -20,8 +25,19 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/static", express.static(path.join(__dirname, "static")));
 // app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    store: new CookieStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+
 app.use(localsMiddleware);
 
 app.get("/robots.txt", (req, res) => {
