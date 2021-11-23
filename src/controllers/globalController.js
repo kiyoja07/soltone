@@ -38,9 +38,11 @@ const handleBlogsRaw = (blogsRaw) => {
     blog.type = blogRaw.type;
     blog.title = blogRaw.title;
     if (blogRaw.image1) {
-      blog.image = blogRaw.image1;
+      blog.image = blogRaw.image1.split(",")[0];
     } else if (blogRaw.image2) {
-      blog.image = blogRaw.image2;
+      blog.image = blogRaw.image2.split(",")[0];
+    } else if (blogRaw.image3) {
+      blog.image = blogRaw.image3.split(",")[0];
     } else {
       blog.image = defaultOgImage;
     }
