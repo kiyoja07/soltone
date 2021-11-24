@@ -17,27 +17,32 @@ block content
                 each item in blog.image1
                     img(src=item).blog-image
             if blog.description1
-                pre.blog-description=blog.description1
+                pre.blog-description
+                    | !{blog.description1}
             if blog.image2.length > 0
                 each item in blog.image2
                     img(src=item).blog-image
             if blog.description2
-                pre.blog-description=blog.description2
+                pre.blog-description
+                    | !{blog.description2}
             if blog.image3.length > 0
                 each item in blog.image3
                     img(src=item).blog-image
             if blog.description3
-                pre.blog-description=blog.description3
+                pre.blog-description
+                    | !{blog.description3}
             if blog.image4.length > 0
                 each item in blog.image4
                     img(src=item).blog-image
             if blog.description4
-                pre.blog-description=blog.description4
+                pre.blog-descriptio
+                    | !{blog.description4}
             if blog.image5.length > 0
                 each item in blog.image5
                     img(src=item).blog-image
             if blog.description5
-                pre.blog-description=blog.description5
+                pre.blog-description
+                    | !{blog.description5}
         .blogDetail__browseAll
             a(href=routes.blogs title="다른 블로그 글 보기") 다른 블로그 글 보기 &nbsp;&nbsp; >
 

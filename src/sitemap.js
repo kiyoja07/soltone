@@ -1,48 +1,9 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { createGzip } from "zlib";
 import { Readable } from "stream";
-
-import dotenv from "dotenv";
-import Airtable from "airtable";
-
-dotenv.config();
-
-const airTableBaseId = process.env.AIRTABLE_BASE_ID;
-const airTableApiKey = process.env.AIRTABLE_API_KEY;
+import Blog from "./models/Blog";
 
 let sitemap;
-
-const requestAirtable = (baseName) => {
-  const base = new Airtable({ apiKey: airTableApiKey }).base(airTableBaseId);
-  const recordsFromAirtable = [];
-  return new Promise((resolve, reject) => {
-    base(baseName)
-      .select({
-        view: "Grid view",
-      })
-      .eachPage(
-        (records, fetchNextPage) => {
-          records.forEach((record) => {
-            const status = record.get("status");
-            const type = record.get("type");
-            if ((status == "on" || status == "home") && type == "inside") {
-              const { id } = record;
-              recordsFromAirtable.push(id);
-            }
-          });
-
-          fetchNextPage();
-        },
-        (err) => {
-          if (err) {
-            console.error(err);
-            reject();
-          }
-          resolve(recordsFromAirtable);
-        }
-      );
-  });
-};
 
 export const generateSitemap = async (req, res) => {
   res.header("Content-Type", "application/xml");
@@ -53,7 +14,11 @@ export const generateSitemap = async (req, res) => {
     return;
   }
   try {
-    const blogIds = await requestAirtable("blog");
+    let blogs = await Blog.find(
+      { status: { $in: ["on", "home"] }, type: "inside" },
+      { _id: 1 }
+    );
+
     const urls = [
       {
         url: "/",
@@ -75,11 +40,11 @@ export const generateSitemap = async (req, res) => {
       },
     ];
 
-    for (const id of blogIds) {
+    for (const blog of blogs) {
       const links = {
-        url: `/blogs/${id}`,
-        changefreq: "daily",
-        priority: 0.8,
+        url: `/blogs/${blog._id}`,
+        changefreq: "weekly",
+        priority: 0.9,
         lastmod: Date.now(),
       };
       urls.push(links);
