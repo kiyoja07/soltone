@@ -10,6 +10,9 @@
   cursor: pointer;
   text-shadow: none;
   border-style: solid;
+  span {
+    color: #191919;
+  }
 }
 
 @media (max-width: 768px) {
