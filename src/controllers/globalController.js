@@ -19,7 +19,7 @@ const handleDescription = (descriptionRaw) => {
   const maxDescriptionLength = 160;
   const regExp = /<[^>]*>/g;
 
-  let description = descriptionRaw.replaceAll(regExp, "&nbsp");
+  let description = descriptionRaw.replace(regExp, "&nbsp");
 
   if (description.length >= maxDescriptionLength) {
     description = `${description.substr(0, maxDescriptionLength)} ...`;
