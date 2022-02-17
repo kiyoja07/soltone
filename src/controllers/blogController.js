@@ -45,59 +45,25 @@ function dateFormat(date) {
 }
 
 const handleBlog = (blogRaw) => {
-  let blog = {};
-
-  blog.id = blogRaw._id;
-  blog.type = blogRaw.type;
-  blog.title = blogRaw.title;
-  blog.ogImageUrl = makeOgImage(blogRaw);
-
-  blog.description1 = blogRaw.description1;
-  blog.description2 = blogRaw.description2;
-  blog.description3 = blogRaw.description3;
-  blog.description4 = blogRaw.description4;
-  blog.description5 = blogRaw.description5;
-
-  if (blogRaw.image1) {
-    blog.image1 = blogRaw.image1.split(",");
-  } else {
-    blog.image1 = [];
-  }
-
-  if (blogRaw.image2) {
-    blog.image2 = blogRaw.image2.split(",");
-  } else {
-    blog.image2 = [];
-  }
-
-  if (blogRaw.image3) {
-    blog.image3 = blogRaw.image3.split(",");
-  } else {
-    blog.image3 = [];
-  }
-
-  if (blogRaw.image4) {
-    blog.image4 = blogRaw.image4.split(",");
-  } else {
-    blog.image4 = [];
-  }
-
-  if (blogRaw.image5) {
-    blog.image5 = blogRaw.image5.split(",");
-  } else {
-    blog.image5 = [];
-  }
-
-  blog.outlink = blogRaw.outlink;
-  blog.postdate = dateFormat(blogRaw.postdate);
-
-  if (blogRaw.tags) {
-    blog.tags = blogRaw.tags.split(",");
-  } else {
-    blog.tags = [];
-  }
-
-  return blog;
+  return {
+    id: blogRaw._id,
+    type: blogRaw.type,
+    title: blogRaw.title,
+    ogImageUrl: makeOgImage(blogRaw),
+    description1: blogRaw.description1,
+    description2: blogRaw.description2,
+    description3: blogRaw.description3,
+    description4: blogRaw.description4,
+    description5: blogRaw.description5,
+    outlink: blogRaw.outlink,
+    postdate: dateFormat(blogRaw.postdate),
+    image1: blogRaw.image1 ? blogRaw.image1.split(",") : [],
+    image2: blogRaw.image2 ? blogRaw.image2.split(",") : [],
+    image3: blogRaw.image3 ? blogRaw.image3.split(",") : [],
+    image4: blogRaw.image4 ? blogRaw.image4.split(",") : [],
+    image5: blogRaw.image5 ? blogRaw.image5.split(",") : [],
+    tags: blogRaw.tags ? blogRaw.tags.split(",") : [],
+  };
 };
 
 // Blog Detail

@@ -1,0 +1,15 @@
+extends layouts/main
+
+block content
+    .blog-container
+        .blog-wrapper
+            each blog in blogs
+                +blogBlock({
+                    id: blog.id,
+                    title: blog.title,
+                    description: blog.description,
+                    image: blog.image,
+                    outlink: blog.outlink
+                })
+        .blog-home-btn
+            a(href=routes.home) 홈으로 &nbsp;&nbsp; >

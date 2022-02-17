@@ -2,6 +2,7 @@
 const HOME = "/";
 const PEOPLE = "/people";
 const SITEMAP = "/sitemap.xml";
+const LOGIN = "/login";
 
 // Blog
 const BLOGS = "/blogs";
@@ -12,6 +13,7 @@ const routes = {
   home: HOME,
   people: PEOPLE,
   sitemap: SITEMAP,
+  login: LOGIN,
 
   blogs: BLOGS,
   blogDetail: (id) => {

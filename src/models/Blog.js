@@ -6,6 +6,9 @@ const BlogSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  record_id: {
+    type: Number,
+  },
   status: {
     type: String,
     required: true,

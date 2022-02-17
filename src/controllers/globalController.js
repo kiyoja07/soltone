@@ -18,13 +18,11 @@ const kakaoMapApi = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${mapAppKey}&librari
 const handleDescription = (descriptionRaw) => {
   const maxDescriptionLength = 160;
   const regExp = /<[^>]*>/g;
-
   let description = descriptionRaw.replace(regExp, "&nbsp");
 
   if (description.length >= maxDescriptionLength) {
     description = `${description.substr(0, maxDescriptionLength)} ...`;
   }
-
   return description;
 };
 
@@ -32,11 +30,12 @@ const handleBlogsRaw = (blogsRaw) => {
   let handeledBlogs = [];
 
   for (let blogRaw of blogsRaw) {
-    let blog = {};
+    let blog = {
+      id: blogRaw._id,
+      type: blogRaw.type,
+      title: blogRaw.title,
+    };
 
-    blog.id = blogRaw._id;
-    blog.type = blogRaw.type;
-    blog.title = blogRaw.title;
     if (blogRaw.image1) {
       blog.image = blogRaw.image1.split(",")[0];
     } else if (blogRaw.image2) {
@@ -57,7 +56,8 @@ const handleBlogsRaw = (blogsRaw) => {
       blog.outlink = blogRaw.outlink;
     }
 
-    handeledBlogs.unshift(blog);
+    // handeledBlogs.unshift(blog);
+    handeledBlogs.push(blog);
   }
   return handeledBlogs;
 };
@@ -65,12 +65,22 @@ const handleBlogsRaw = (blogsRaw) => {
 // Blogs
 export const blogs = async (req, res) => {
   try {
-    let blogs = await Blog.find(
+    const blogsRaw = await Blog.find(
       { status: { $in: ["on", "home"] } },
-      { type: 1, title: 1, image1: 1, description1: 1, image2: 1, outlink: 1 }
-    );
+      {
+        type: 1,
+        title: 1,
+        image1: 1,
+        description1: 1,
+        image2: 1,
+        outlink: 1,
+        record_id: 1,
+      }
+    ).sort({
+      record_id: -1,
+    });
 
-    blogs = handleBlogsRaw(blogs);
+    const blogs = handleBlogsRaw(blogsRaw);
 
     res.render("blogs", {
       pageTitle: blogsPageTitle,
@@ -88,15 +98,24 @@ export const blogs = async (req, res) => {
 // Home
 export const home = async (req, res) => {
   try {
-    const maxBlog = 4;
-
-    let blogs = await Blog.find(
+    const blogsRaw = await Blog.find(
       { status: "home" },
-      { type: 1, title: 1, image1: 1, description1: 1, image2: 1, outlink: 1 }
-    );
+      {
+        type: 1,
+        title: 1,
+        image1: 1,
+        description1: 1,
+        image2: 1,
+        outlink: 1,
+        record_id: 1,
+      }
+    )
+      .sort({
+        record_id: -1,
+      })
+      .limit(4);
 
-    blogs = handleBlogsRaw(blogs);
-    blogs = blogs.slice(0, maxBlog);
+    const blogs = handleBlogsRaw(blogsRaw);
 
     res.render("home", {
       canonicalUrl: routes.home,
@@ -130,4 +149,9 @@ export const people = (req, res) => {
     console.log(`res.render("people") error : ${error}`);
     res.redirect(routes.home);
   }
+};
+
+// Log In
+export const login = (req, res) => {
+  res.render("login", {});
 };
