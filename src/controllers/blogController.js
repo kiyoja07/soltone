@@ -95,7 +95,7 @@ export const blogDetail = async (req, res) => {
     );
 
     if (blog.type == "outside") {
-      throw "blog type is the outside";
+      throw new Error("blog type is the outside");
     }
 
     blog = handleBlog(blog);

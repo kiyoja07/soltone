@@ -27,7 +27,7 @@ const handleDescription = (descriptionRaw) => {
 };
 
 const handleBlogsRaw = (blogsRaw) => {
-  let handeledBlogs = [];
+  let handledBlogs = [];
 
   for (let blogRaw of blogsRaw) {
     let blog = {
@@ -56,10 +56,9 @@ const handleBlogsRaw = (blogsRaw) => {
       blog.outlink = blogRaw.outlink;
     }
 
-    // handeledBlogs.unshift(blog);
-    handeledBlogs.push(blog);
+    handledBlogs.push(blog);
   }
-  return handeledBlogs;
+  return handledBlogs;
 };
 
 // Blogs
