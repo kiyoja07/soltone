@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 
 const BlogSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+  // id: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  // },
   record_id: {
     type: Number,
+    required: true,
   },
   status: {
     type: String,

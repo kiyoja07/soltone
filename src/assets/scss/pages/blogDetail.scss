@@ -4,6 +4,7 @@
   max-width: $pw-max-width;
   min-height: 100vh;
   padding-top: $header-height;
+  // padding-top: calc(64px + 8px);
   padding-bottom: 5vh;
   margin: 0 auto 5vh auto;
   .blog-title {

@@ -8,6 +8,7 @@
   width: 100%;
   height: $header-height;
   .header__wrapper {
+    background-color: $background-dark;
     // vertical-align: middle;
     padding: 20px 5vw 0 5vw;
     display: grid;
@@ -130,6 +131,8 @@
       }
     }
   }
+
+
 }
 
 @media (max-width: 768px) {

@@ -39,3 +39,18 @@ main {
 .topBtnBlock {
   display: block;
 }
+
+
+.progress-container {
+  padding-top: $header-height;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  .progress-bar {
+    height: 4px;
+    background: $text-red;
+    width: 0%;
+    float: left;
+  }
+}

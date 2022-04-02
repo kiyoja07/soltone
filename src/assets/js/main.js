@@ -3,3 +3,4 @@ import "./map";
 import "./topBtn";
 import "./typewriter";
 import "./lazyloading";
+import "./progressBar";
