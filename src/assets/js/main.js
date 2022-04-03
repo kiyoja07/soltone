@@ -4,3 +4,4 @@ import "./topBtn";
 import "./typewriter";
 import "./lazyloading";
 import "./progressBar";
+import "./menuToggle";
