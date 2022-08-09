@@ -1,0 +1,7 @@
+mixin startBtn({btnTitle, btnTarget, openNewWindow})
+    if openNewWindow
+        button(type="submit" onclick=`window.open('${btnTarget}')`).startBtn
+            span=btnTitle
+    else 
+        button(type="submit" onclick=`location.href='${btnTarget}'`).startBtn
+            span=btnTitle

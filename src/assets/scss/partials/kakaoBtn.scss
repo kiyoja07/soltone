@@ -1,18 +1,26 @@
 .social-login--kakao {
   font-size: 16px;
+  font-weight: 500;
+  color: #191919;
   width: 200px;
   height: 60px;
   margin: 0 auto;
   padding: 0;
   background-color: #fae100;
-  border-color: #fae100;
+  border-style: none;
+  border-radius: 8px;
   box-shadow: none;
   cursor: pointer;
   text-shadow: none;
-  border-style: solid;
-  span {
-    color: #191919;
-  }
+  // span {
+  //   color: #191919;
+  // }
+}
+
+.social-login--kakao:hover {
+  font-weight: 600;
+  // color: #fff;
+  // background-color: $background-dark;
 }
 
 @media (max-width: 768px) {

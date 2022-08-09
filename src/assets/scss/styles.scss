@@ -3,11 +3,13 @@
 
 @import "main.scss";
 
+@import "partials/blogBlock.scss";
 @import "partials/header.scss";
 @import "partials/footer.scss";
 @import "partials/mapBlock.scss";
 @import "partials/kakaoBtn.scss";
-@import "partials/blogBlock.scss";
+@import "partials/startBtn.scss";
+
 
 @import "pages/home.scss";
 @import "pages/people.scss";

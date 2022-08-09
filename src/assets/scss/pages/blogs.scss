@@ -2,9 +2,10 @@
   padding-top: $header-height;
   width: 100%;
   min-height: 100vh;
-  max-width: $pw-max-width;
+  
   background-color: $background-yellow;
   .blog-wrapper {
+    max-width: $pw-max-width;
     margin: 0 auto 0 auto;
     padding: 5vh 2vw;
     display: grid;

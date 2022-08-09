@@ -40,6 +40,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "left-column center-column right-column";
     align-items: center;
+
     .to-owner {
       margin: 0 auto;
       grid-area: left-column;
@@ -60,40 +61,47 @@
       padding: 4vh 3vw;
       background-color: $background-yellow;
       color: $soltone-black;
+      border-radius: 10px;
+      text-align: center;
       .mainMessage-title {
-        text-align: center;
-        font-size: $sub-titile-font-size;
+        font-size: $title-font-size;
         padding: 2vh 0;
         letter-spacing: 1.1px;
-        h3 {
-          width: initial;
-          border-bottom: 2px solid #f1574b;
-          display: inline-block;
-          padding-bottom: 3px;
-        }
-      }
-      .mainMessage-body {
-        margin: 3vh 0 0 0;
-        line-height: 1.75;
-        font-size: 16px;
-      }
-    }
-  }
-  .people__container {
-    background-color: $background-white;
-    margin: 5vh auto 0 auto;
-    .people--title {
-      text-align: center;
-      margin: 2vh 0;
-      font-size: $title-font-size;
-      letter-spacing: 1.1px;
-      color: $soltone-black;
-      span {
         width: initial;
         border-bottom: 2px solid #f1574b;
         display: inline-block;
         padding-bottom: 3px;
       }
+      .mainMessage-body {
+        margin: 3vh 0 0 0;
+        line-height: 1.75;
+        font-size: 16px;
+        text-align: left;
+      }
+    }
+  }
+  .home__people__container {
+    background-color: $background-white;
+    margin: 2vh auto 0 auto;
+    text-align: center;
+    .people--title {
+      text-align: center;
+      margin: 2vh 0;
+      font-size: 28px;
+      letter-spacing: 1.1px;
+      color: $soltone-black;
+      box-sizing: border-box;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: bold;
+      background-image: linear-gradient(transparent 65%, #a9ffd9 0%);
+      background-repeat: no-repeat;
+      background-size: 100% 300%;
+      background-position: 0% 70%;
+      transition: background-position 0.5s ease 0s;
+    }
+    .people--title:hover {
+      background-position: 0% 100%;
     }
     .people--image {
       text-align: center;
@@ -111,6 +119,7 @@
       margin: 5vh 30vw;
       line-height: 1.75;
       color: $soltone-black;
+      text-align: left;
     }
     .people--detail--btn {
       margin: 5vh auto;
@@ -119,7 +128,7 @@
         display: block;
         color: #ff5567;
         letter-spacing: 1.3px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
       }
     }
@@ -127,10 +136,11 @@
 
   .home__blog {
     width: 100%;
-    max-width: $pw-max-width;
+    // max-width: $pw-max-width;
     background-color: $background-yellow;
     padding: 5vh 0;
     .home__blog__wrapper {
+      max-width: $pw-max-width;
       margin: 0 auto 0 auto;
       padding: 6vh 2vw 0 2vw;
       display: grid;
@@ -139,26 +149,95 @@
       align-items: flex-start;
     }
     .home__blog__browseAll {
-      margin: 5vh auto;
+      width: 100%;
+      max-width: 600px;
+      margin: 4vh auto;
       text-align: center;
       cursor: pointer;
       a {
         display: block;
         color: #ff5567;
         letter-spacing: 1.3px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
       }
     }
   }
 
+  .messageContainer {
+    width: 100%;
+    max-width: 1600px;
+    margin: 4em auto;
+    .messageContainerTitle {
+      text-align: center;
+      h3 {
+        font-size: 28px;
+        box-sizing: border-box;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: bold;
+        background-image: linear-gradient(transparent 65%, #a9ffd9 0%);
+        background-repeat: no-repeat;
+        background-size: 100% 300%;
+        background-position: 0% 70%;
+        transition: background-position 0.5s ease 0s;
+      }
+      h3:hover {
+        background-position: 0% 100%;
+      }
+      p {
+        margin: 2em auto 0 auto;
+        font-size: 16px;
+        color: $black
+      }
+    }
+
+    .messageMain {
+      display: flex;
+      justify-content: center;
+      .message {
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+        padding: 1.77em;
+        margin: 2em;
+        width: 300px;
+        .messageTitle {
+          h3 {
+            font-size: 1.33em;
+            line-height: 1.33em;
+            box-sizing: border-box;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+          }
+        }
+        .messageBody {
+          margin: 1em 0 0 0;
+          p {
+            font-size: 1em;
+            line-height: 1.33em;
+            color: rgb(141, 141, 141);
+            margin-bottom: 0.2em;
+          }
+        }
+      }
+      .message:hover {
+        box-shadow: 0 34px 32px -33px rgba(0, 0, 0, 0.18);
+        transform: translate(0px, -3px);
+        background-color: rgba(245, 241, 237, 0.35);
+      }
+    }
+    .messageBtn {
+      margin: 30px auto;
+    }
+  }
   .home__lastMessage {
-    width: 100vw;
-    max-width: $pw-max-width;
+    width: 100%;
+    background-color: $background-blue;
     margin: 0 auto;
     padding: 5vh 0;
-    background-color: $background-blue;
-    font-size: $sub-titile-font-size;
+    font-size: $title-font-size;
     text-align: center;
     line-height: 200%;
     letter-spacing: 1.1px;
@@ -166,30 +245,44 @@
   }
   .home__contact {
     margin: 0 auto;
-    padding: 5vh 0;
+    padding: 6vh 0 5vh 0;
+    text-align: center;
     .home__contact--title {
       text-align: center;
-      font-size: $title-font-size;
-      padding: 2vh 0;
+      font-size: 28px;
+      // padding: 2vh 0 0 0;
       letter-spacing: 1.1px;
       color: $soltone-black;
-      span {
-        width: initial;
-        border-bottom: 2px solid #f1574b;
-        display: inline-block;
-        padding-bottom: 3px;
-      }
+
+
+
+
+      letter-spacing: 1.1px;
+      box-sizing: border-box;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: bold;
+      background-image: linear-gradient(transparent 65%, #a9ffd9 0%);
+      background-repeat: no-repeat;
+      background-size: 100% 300%;
+      background-position: 0% 70%;
+      transition: background-position 0.5s ease 0s;
+    }
+    .home__contact--title:hover {
+      background-position: 0% 100%;
     }
     .home__contact__container {
       margin: 2vh auto;
+      padding: 2vh 0 0 0;
       width: 100%;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas: "left-column right-column";
       align-items: center;
+      text-align: left;
       .home__contact__map {
         margin: 0 auto;
-        padding-left: 2vw;
+        padding-left: 6vw;
         grid-area: left-column;
       }
       .home__contact__info {
@@ -217,6 +310,11 @@
   }
 }
 
+
+//////////////////////////////
+///////// MOBILE /////////////
+//////////////////////////////
+
 @media (max-width: 768px) {
   .home-container {
     .img__hero--content {
@@ -226,6 +324,8 @@
       }
     }
     .mainMessage-container {
+      margin: 1vh auto;
+      padding: 3vh 2vw;
       grid-template-rows: repeat(3, 1fr);
       grid-template-areas: "left-column left-column left-column" "center-column center-column center-column" "right-column right-column right-column";
       .mainMessage__column {
@@ -235,6 +335,15 @@
         padding: 3vh 3vw;
         .mainMessage-body {
           font-size: 14px;
+        }
+      }
+    }
+    .mainMessage-container {
+      .mainMessage__column {
+        .mainMessage-title {
+          h3 {
+            font-size: 20px;
+          }
         }
       }
     }
@@ -254,8 +363,11 @@
         }
       }
     }
-    .people__container {
-      margin: 3vh auto 0 auto;
+    .home__people__container {
+      margin: 0 auto;
+      .people--title {
+        font-size: 20px;
+      }
       .people--intro {
         margin: 5vh 10vw;
       }
@@ -266,12 +378,41 @@
         display: block;
       }
     }
+    .messageContainer {
+      .messageContainerTitle {
+        h3 {
+          font-size: 20px;
+        }
+      }
+      .messageMain {
+        display: block;
+        margin: 0 auto;
+        .message {
+          margin: 2em auto;
+          width: 80%;
+          .messageTitle {
+            h3 {
+              font-size: 18px;
+            }
+          }
+          .messageBody {
+            p {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
     .home__lastMessage {
-      font-size: 14px;
+      font-size: 16px;
     }
     .home__contact {
+      .home__contact--title {
+        font-size:20px;
+      }
       .home__contact__container {
-        .home__contact__info {
+        .home__contact__map {
+          padding-left: 0;
         }
       }
     }
