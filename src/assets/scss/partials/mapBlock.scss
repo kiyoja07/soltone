@@ -1,19 +1,19 @@
 .map {
-  margin: 0 3vw;
-  width: 350px;
-  height: 350px;
-  .mapMarker {
-    width: 148px;
-    text-align: center;
-    padding: 6px 0;
-    border-radius: 50px;
-    margin: 0 auto;
+    margin: 0 3vw;
+    width: 350px;
+    height: 350px;
+    .mapMarker {
+      width: 148px;
+      text-align: center;
+      padding: 6px 0;
+      border-radius: 50px;
+      margin: 0 auto;
+    }
   }
-}
-
-@media (max-width: 768px) {
-  .map {
-    width: 72vw;
-    height: 36vh;
+  
+  @media (max-width: 768px) {
+    .map {
+      width: 72vw;
+      height: 36vh;
+    }
   }
-}
