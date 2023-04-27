@@ -40,14 +40,14 @@
         margin: 2vh 0;
       }
     }
-    .people--eductaion {
+    .people--career {
       margin: 0 auto;
+    }
+    .people--eductaion {
+      margin: 4vh auto;
       padding-bottom: 5vh;
     }
-    .people--career {
-      margin: 4vh auto;
-      
-    }
+
     .people--detail {
       justify-self: center;
       h3 {
@@ -84,13 +84,7 @@
       .page--title {
         font-size: 24px;
       }
-      .people-description {
-        font-size: 14px;
-      }
-      .people-intro {
-        font-size: 14px;
-      }
-      .people--detail {
+      .people-description .people-intro .people--detail  {
         font-size: 14px;
       }
     }
