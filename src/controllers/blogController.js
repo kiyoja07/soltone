@@ -105,6 +105,7 @@ export const blogDetail = async (req, res) => {
       canonicalUrl: routes.blogDetail(blog.id),
       metaDescription: blog.title,
       ogImageUrl: blog.ogImageUrl,
+      metaKeywords: blog.tags,
       blog,
     });
   } catch (error) {

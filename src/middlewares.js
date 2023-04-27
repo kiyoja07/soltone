@@ -16,8 +16,10 @@ export const defaultMetaDescription =
 
 // People Page
 export const peoplePageTitle = "구성원";
-export const peopleMetaDescription = "솔톤세무회계 김덕화 세무사";
+export const peopleMetaDescription =
+  "솔톤세무회계 김덕화 대표 세무사의 주요 경력과 학력을 소개합니다.";
 
 // Blogs Page
 export const blogsPageTitle = "블로그";
-export const blogsMetaDescription = "솔톤세무회계 블로그";
+export const blogsMetaDescription =
+  "세금과 관련된 다양하고 유용한 정보와 꿀팁들을 솔톤세무회계 김덕화 세무사가 쉽게 설명드립니다.";
