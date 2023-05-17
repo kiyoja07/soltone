@@ -4,17 +4,16 @@ mixin blogBlock( blog = {} )
             a(href=routes.blogDetail(blog.id) title=`${blog.title}`)
                 img(data-src=blog.image alt=blog.title).blogBlock__image.lazyImg
                 .blogBlock__text
-                    h1.blogBlock__title=blog.title
+                    h3.blogBlock__title=blog.title
                     p.blogBlock__description
                         | !{blog.description}
-                    //- p.blogBlock__description=blog.description
                     .blogBlock__readMore
                         span Read More
         else
             a(href=blog.outlink target="_blank" rel="noopener noreferrer external" title=`${blog.title}`)
                 img(data-src=blog.image alt=blog.title).blogBlock__image.lazyImg
                 .blogBlock__text
-                    h1.blogBlock__title=blog.title
+                    h3.blogBlock__title=blog.title
                     p.blogBlock__description
                         | !{blog.description}
                     .blogBlock__readMore
