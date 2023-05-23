@@ -1,92 +1,95 @@
-.people__container {
+.people-container {
   padding-top: $header-height;
   background-color: $background-yellow;
   color: $soltone-black;
   width: 100%;
-  .people__wrapper {
-    margin: 0 auto;
-    padding-bottom: 7vh;
-    width: 45%;
-    .page--title {
-      text-align: center;
-      margin: 5vh 0;
-      font-size: 30px;
-      letter-spacing: 1.1px;
+  margin: 0 auto;
+  padding-bottom: 7vh;
+  // width: 45%;
+  .page--title {
+    text-align: center;
+    margin: 5vh 0;
+    font-size: 30px;
+    letter-spacing: 1.1px;
+  }
+  .people-description {
+    text-align: center;
+    margin: 5vh 0;
+    line-height: 1.75;
+  }
+  .people-image {
+    text-align: center;
+    picture {
+      img {
+        // 사진 원본 : 248px, 319px
+        width: 200px;
+        height: 257.258px;
+        border-radius: 5px;
+      }
     }
-    .people-description {
-      text-align: center;
-      margin: 5vh 0;
+    h2 {
+      font-weight: bold;
+      line-height: 3;
+    }
+  }
+  .people-intro {
+    width: 44%;
+    margin: 5vh auto;
+    p {
       line-height: 1.75;
+      margin: 2vh 0;
     }
-    .people-image {
-      text-align: center;
-      picture {
-        img {
-          // 사진 원본 : 248px, 319px
-          width: 200px;
-          height: 257.258px;
-          border-radius: 5px;
-        }
-      }
-      h2 {
-        font-weight: bold;
-        line-height: 3;
-      }
-    }
-    .people-intro {
-      margin: 5vh auto;
-      p {
-        line-height: 1.75;
-        margin: 2vh 0;
-      }
-    }
-    .people--career {
-      margin: 0 auto;
-    }
-    .people--eductaion {
-      margin: 4vh auto;
-      padding-bottom: 5vh;
-    }
+  }
+  .people--career {
+    margin: 0 auto;
+  }
+  .people--eductaion {
+    margin: 4vh auto;
+    padding-bottom: 5vh;
+  }
 
-    .people--detail {
-      justify-self: center;
-      h3 {
-        width: initial;
-        border-bottom: 2px solid #f1574b;
-        display: inline-block;
-        padding-bottom: 3px;
-        margin-bottom: 2vh;
-      }
-      p {
-        margin: 1.2vh 0;
-        line-height: 1.25;
-      }
+  .people--detail {
+    justify-self: center;
+    width: 44%;
+    h3 {
+      width: initial;
+      border-bottom: 2px solid #f1574b;
+      display: inline-block;
+      padding-bottom: 3px;
+      margin-bottom: 2vh;
     }
-    .people-home-btn {
-      margin: 3vh auto;
-      text-align: center;
-      a {
-        display: block;
-        color: #ff5567;
-        letter-spacing: 1.3px;
-        font-size: 16px;
-        font-weight: 700;
-      }
+    p {
+      margin: 1.2vh 0;
+      line-height: 1.25;
+    }
+  }
+  .people-home-btn {
+    margin: 3vh auto;
+    text-align: center;
+    a {
+      display: block;
+      color: #ff5567;
+      letter-spacing: 1.3px;
+      font-size: 16px;
+      font-weight: 700;
     }
   }
 }
 
 @media (max-width: 768px) {
-  .people__container {
-    .people__wrapper {
-      width: 85%;
-      padding-bottom: 5vh;
-      .page--title {
-        font-size: 24px;
-      }
-      .people-description .people-intro .people--detail  {
-        font-size: 14px;
-      }
+  .people-container {
+    width: 100%;
+    // width: 85%;
+    padding-bottom: 5vh;
+    .page--title {
+      font-size: 24px;
+    }
+    .people-intro {
+      width: 86%;
+    }
+    .people--detail  {
+      width: 86%;
     }
   }
+
 }
