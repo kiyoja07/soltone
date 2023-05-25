@@ -10,6 +10,10 @@ const BlogSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  bid: {
+    type: String,
+    required: true,
+  },
   status: {
     type: String,
     required: true,

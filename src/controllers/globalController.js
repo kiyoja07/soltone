@@ -32,6 +32,7 @@ const handleBlogsRaw = (blogsRaw) => {
   for (let blogRaw of blogsRaw) {
     let blog = {
       id: blogRaw._id,
+      bid: blogRaw.bid,
       type: blogRaw.type,
       title: blogRaw.title,
     };
@@ -67,6 +68,7 @@ export const blogs = async (req, res) => {
     const blogsRaw = await Blog.find(
       { status: { $in: ["on", "home"] } },
       {
+        bid: 1,
         type: 1,
         title: 1,
         image1: 1,
@@ -100,6 +102,7 @@ export const home = async (req, res) => {
     const blogsRaw = await Blog.find(
       { status: "home" },
       {
+        bid: 1,
         type: 1,
         title: 1,
         image1: 1,

@@ -1,7 +1,7 @@
 import routes from "../routes";
 import { defaultOgImage } from "../middlewares";
 import Blog from "../models/Blog";
-import { ObjectId } from "bson";
+import { blogsMapping } from "../blogsMapping";
 
 const makeOgImage = (blog) => {
   if (blog.image1) {
@@ -32,21 +32,13 @@ function dateFormat(date) {
   // minute = minute >= 10 ? minute : "0" + minute;
   // second = second >= 10 ? second : "0" + second;
 
-  return (
-    date.getFullYear() + "-" + month + "-" + day
-    // +
-    // " " +
-    // hour +
-    // ":" +
-    // minute +
-    // ":" +
-    // second
-  );
+  return date.getFullYear() + "-" + month + "-" + day;
 }
 
 const handleBlog = (blogRaw) => {
   return {
     id: blogRaw._id,
+    bid: blogRaw.bid,
     type: blogRaw.type,
     title: blogRaw.title,
     ogImageUrl: makeOgImage(blogRaw),
@@ -69,13 +61,28 @@ const handleBlog = (blogRaw) => {
 // Blog Detail
 export const blogDetail = async (req, res) => {
   const {
-    params: { id },
+    params: { bid },
   } = req;
+
+  const oldURLStartAt = ["61", "62", "63", "64"];
+
   try {
+    if (oldURLStartAt.includes(bid.substr(0, 2))) {
+      for (const blogMapping of blogsMapping) {
+        if (bid === blogMapping._id) {
+          console.log("ok", blogMapping._id, blogMapping.bid);
+          // res.redirect(301, `https://soltonetax.com/blogs/${blogMapping.bid}`);
+          res.redirect(301, `http://localhost:3000/blogs/${blogMapping.bid}`);
+          return;
+        }
+      }
+    }
+
     let blog = await Blog.findOne(
-      { _id: ObjectId(id) },
+      { bid },
       {
         _id: 1,
+        bid: 1,
         type: 1,
         title: 1,
         image1: 1,
@@ -102,7 +109,7 @@ export const blogDetail = async (req, res) => {
 
     res.render("blogDetail", {
       pageTitle: blog.title,
-      canonicalUrl: routes.blogDetail(blog.id),
+      canonicalUrl: routes.blogDetail(blog.bid),
       metaDescription: blog.title,
       ogImageUrl: blog.ogImageUrl,
       metaKeywords: blog.tags,

@@ -6,7 +6,7 @@ const LOGIN = "/login";
 
 // Blog
 const BLOGS = "/blogs";
-const BLOG_DETAIL = "/:id";
+const BLOG_DETAIL = "/:bid";
 
 // Routes
 const routes = {
@@ -16,9 +16,9 @@ const routes = {
   login: LOGIN,
 
   blogs: BLOGS,
-  blogDetail: (id) => {
-    if (id) {
-      return `/blogs/${id}`;
+  blogDetail: (bid) => {
+    if (bid) {
+      return `/blogs/${bid}`;
     } else {
       return BLOG_DETAIL;
     }

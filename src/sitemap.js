@@ -14,11 +14,6 @@ export const generateSitemap = async (req, res) => {
     return;
   }
   try {
-    let blogs = await Blog.find(
-      { status: { $in: ["on", "home"] }, type: "inside" },
-      { _id: 1 }
-    );
-
     const urls = [
       {
         url: "/",
@@ -40,9 +35,14 @@ export const generateSitemap = async (req, res) => {
       },
     ];
 
+    const blogs = await Blog.find(
+      { status: { $in: ["on", "home"] }, type: "inside" },
+      { bid: 1 }
+    );
+
     for (const blog of blogs) {
       const links = {
-        url: `/blogs/${blog._id}`,
+        url: `/blogs/${blog.bid}`,
         changefreq: "weekly",
         priority: 0.9,
         lastmod: Date.now(),
