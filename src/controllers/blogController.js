@@ -72,7 +72,7 @@ export const blogDetail = async (req, res) => {
         if (bid === blogMapping._id) {
           console.log("ok", blogMapping._id, blogMapping.bid);
           // res.redirect(301, `https://soltonetax.com/blogs/${blogMapping.bid}`);
-          res.redirect(301, `http://localhost:3000/blogs/${blogMapping.bid}`);
+          res.redirect(301, `https://soltonetax.com//blogs/${blogMapping.bid}`);
           return;
         }
       }
