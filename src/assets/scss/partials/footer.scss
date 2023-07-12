@@ -48,6 +48,11 @@
         display: flex;
         font-weight: 600;
         margin: 1vh auto;
+        // li {
+        //   color: white;
+        //   font-size: 16px;
+        //   font-weight: bold;
+        // }
       }
       h3 {
         text-align: center;
@@ -67,6 +72,10 @@
       .company__name {
         text-align: left;
         letter-spacing: 1.1px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        // font-size: 18px;
         span {
           width: initial;
           border-bottom: 2px solid #f1574b;
@@ -93,6 +102,9 @@
       // }
       .company__detail {
         line-height: 1.75;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
       }
     }
   }
