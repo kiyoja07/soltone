@@ -109,16 +109,14 @@
     }
   }
   .footer__copyright {
-    .footer__text {
-      border-top: 2px solid #2d273e;
-      margin-top: 3em;
-      padding-top: 3em;
-      padding-bottom: 1em;
-      text-align: center;
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
-    }
+    border-top: 2px solid #2d273e;
+    margin-top: 3em;
+    padding-top: 3em;
+    padding-bottom: 1em;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
   }
 }
 
@@ -138,9 +136,7 @@
       }
     }
     .footer__copyright {
-      .footer__text {
-        font-size: 10px;
-      }
+      font-size: 10px;
     }
   }
 }
