@@ -1,6 +1,6 @@
 import "@babel/polyfill";
 import dotenv from "dotenv";
-import "./db";
+// import "./db";
 import app from "./app";
 
 import "./models/Blog";

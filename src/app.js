@@ -12,10 +12,13 @@ import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
 import blogRouter from "./routers/blogRouter";
 import favicon from "serve-favicon";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 
-const CookieStore = MongoStore(session);
+// const CookieStore = new MongoStore(session);
+
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
@@ -29,18 +32,40 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+// const dbURI = process.env.PRODUCTION ? process.env.MONGO_URL_PROD : process.env.MONGO_URL;
+const dbURI = process.env.MONGO_URL_PROD;
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('✅ Connected to DB'))
+  .catch(err => console.log(err));
+
+
+const sessionStore = MongoStore.create({ mongoUrl: dbURI });
+
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: false,
-    store: new CookieStore({ mongooseConnection: mongoose.connection }),
+    store: sessionStore,
   })
 );
 
+
+// app.use(
+//   session({
+//     secret: process.env.COOKIE_SECRET,
+//     resave: true,
+//     saveUninitialized: false,
+//     store: new CookieStore({ mongooseConnection: mongoose.connection }),
+//   })
+// );
+
 app.use(localsMiddleware);
 
-app.get("/robots.txt", (req, res) => {
+app.get("/robots.txt", (_, res) => {
   res.type("text/plain");
   res.send(
     "User-agent: *\nAllow: /\nSitemap: https://soltonetax.com/sitemap.xml"

@@ -1,4 +1,4 @@
-runtime: nodejs14
+runtime: nodejs18
 
 build_env_variables:
   GOOGLE_NODE_RUN_SCRIPTS: ""

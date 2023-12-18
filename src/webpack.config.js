@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniExtractCSS = require("mini-css-extract-plugin");
+
 const autoprefixer = require("autoprefixer");
 
 const MODE = process.env.WEBPACK_ENV;
@@ -25,25 +26,29 @@ const config = {
           {
             loader: MiniExtractCSS.loader,
             options: {
-              hmr: process.env.WEBPACK_ENV === "development",
+              // hmr: process.env.WEBPACK_ENV === "development",
             },
           },
           "css-loader",
           {
             loader: "postcss-loader",
             options: {
-              plugins() {
-                return [
-                  autoprefixer({
-                    overrideBrowserslist: "cover 99.5%",
-                  }),
-                ];
-              },
+              // plugins() {
+              //   return [
+              //     autoprefixer({
+              //       overrideBrowserslist: "cover 99.5%",
+              //     }),
+              //   ];
+              // },
             },
           },
 
           "sass-loader",
         ],
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniExtractCSS.loader, 'css-loader'],
       },
     ],
   },
@@ -53,6 +58,8 @@ const config = {
   },
   plugins: [
     new MiniExtractCSS({
+      // filename: '[name].css',
+      // chunkFilename: '[id].css',
       filename: "styles.css",
     }),
   ],
