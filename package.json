@@ -47,6 +47,8 @@
     "prebuild": "rm -rf build",
     "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build",
+    "clean": "npm cache verify && rm -rf node_modules && rm -rf package-lock.json",
+    "restart": "npm run clean && npm i && npm start --reset-cache",
     "gcp-build": ""
   },
   "devDependencies": {
