@@ -36,19 +36,11 @@ block content
                 p • 서강대학교 경제대학원 부동산 경제 석사
                 p • 세무법인에서 다년간 근무
                 p • 바이오 회사 재경팀 근무
+                p • 영등포세무서 국선대리인
                 p • 홍삼 프랜차이즈 가맹점주 대상 세금 강의
-                p • 경제 칼럼 기고
-                p • 손해보험회사 경제 블로그 기고
-                p • 다수의 책 발간
-            //- .people--image
-            //-     picture
-            //-         source(srcset="https://soltone.cdn.ntruss.com/images/ceo.webp" type="image/webp")
-            //-         source(srcset="https://soltone.cdn.ntruss.com/images/ceo.jpg" type="image/jpeg")
-            //-         img(src="https://soltone.cdn.ntruss.com/images/ceo.jpg" alt="김덕화 세무사")
-            //-     h2 김덕화 대표 세무사
-            //- p.people--intro 법인 및 개인사업자 기장, 결산, 외부조정, 양도와 증여 상담 및 신고, 상속세 신고, 세무조사, 상속세 조사, 부동산 자금출처, 수정신고, 경정청구 등 다양한 업무를 수행해왔습니다.  
-            .people--detail--btn
-                a(href=routes.people title="대표 세무사 자세히 보기") 자세히 보기 &nbsp;&nbsp; >
+                p • 경제신문 칼럼 기고
+                p • 손해보험회사 경제 블로그 세금 칼럼 기고
+                p • 쉬운 세금을 위한 여러 책 발간
         .home__blog
             .home__blog__wrapper
                 each blog in blogs
@@ -62,6 +54,17 @@ block content
                     })
             .home__blog__browseAll
                 a(href=routes.blogs title="블로그 모두 보기") 블로그 모두 보기 &nbsp;&nbsp; >
+
+        .homeBook
+            h3.homeBookTitle 도서 소개
+            .homeBookContainer
+                .homeBook
+                    a(href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000006226999" target="_blank" rel="noopener noreferrer external" title="도서 자세히 보기 : 영화, 드라마 속 세금 이야기")
+                        img(data-src="https://soltone.cdn.ntruss.com/images/book-E000006226999.webp" alt="영화, 드라마 속 세금 이야기 책 표지").homeBookImg.lazyImg
+                .homeBook
+                    a(href="https://product.kyobobook.co.kr/detail/S000211785891" target="_blank" rel="noopener noreferrer external" title="도서 자세히 보기 : 세무사가 알려주는 창업 시 준비사항 : 사업자 등록 전에 꼭 숙지해야 하는 준비사항")
+                        img(data-src="https://soltone.cdn.ntruss.com/images/book-S000211785891.webp" alt="세무사가 알려주는 창업 시 준비사항 책 표지").homeBookImg.lazyImg
+
 
         .messageContainer
             .messageContainerTitle
