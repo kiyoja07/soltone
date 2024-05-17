@@ -1,5 +1,27 @@
 .home-container {
   padding-top: $header-height;
+
+  .homeTitle {
+    text-align: center;
+    font-size: 28px;
+    // padding: 2vh 0 0 0;
+    letter-spacing: 1.1px;
+    color: $soltone-black;
+    letter-spacing: 1.1px;
+    box-sizing: border-box;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    background-image: linear-gradient(transparent 65%, #a9ffd9 0%);
+    background-repeat: no-repeat;
+    background-size: 100% 300%;
+    background-position: 0% 70%;
+    transition: background-position 0.5s ease 0s;
+  }
+  .homeTitle:hover {
+    background-position: 0% 100%;
+  }
+
   .img__hero .img__hero--content {
     position: absolute;
     top: 50%;
@@ -32,10 +54,9 @@
     }
   }
 
-
   .home__people__container {
     background-color: $background-white;
-    margin: 4vh auto ;
+    margin: 4vh auto;
     text-align: center;
     .people--title {
       text-align: center;
@@ -59,20 +80,17 @@
     .peopleIntro {
       width: 500px;
       margin: 2vh auto;
-      // margin: 5vh 30vw;
       line-height: 1.75;
       color: $soltone-black;
-      // text-align: left;
       text-align: center;
     }
     .peopleDetail {
       font-size: 16px;
-      width: 300px;
+      width: 320px;
       margin: 5vh auto;
       line-height: 2;
       color: $soltone-black;
       text-align: left;
-
     }
 
     .people--detail--btn {
@@ -120,7 +138,7 @@
 
   .homeBook {
     background-color: $background-white;
-    margin: 4vh auto ;
+    margin: 4vh auto;
     text-align: center;
     width: 100%;
     max-width: 1600px;
@@ -139,7 +157,6 @@
       background-size: 100% 300%;
       background-position: 0% 70%;
       transition: background-position 0.5s ease 0s;
-
     }
     .homeBookTitle:hover {
       background-position: 0% 100%;
@@ -166,10 +183,7 @@
         display: block;
       }
     }
-
   }
-
-
 
   .messageContainer {
     width: 100%;
@@ -195,7 +209,7 @@
       p {
         margin: 2em auto 0 auto;
         font-size: 16px;
-        color: $black
+        color: $black;
       }
     }
 
@@ -250,6 +264,17 @@
     letter-spacing: 1.1px;
     color: $soltone-black;
   }
+  .homePrice {
+    margin: 0 auto;
+    padding: 6vh 0 5vh 0;
+    text-align: center;
+    .tableWrapper {
+      margin: 0 auto;
+      padding: 40px 0 0 0;
+      max-width: 800px;
+    }
+  }
+
   .home__contact {
     margin: 0 auto;
     padding: 6vh 0 5vh 0;
@@ -317,7 +342,6 @@
   }
 }
 
-
 //////////////////////////////
 ///////// MOBILE /////////////
 //////////////////////////////
@@ -329,7 +353,7 @@
       ul {
         width: 80vw;
       }
-      
+
       h1 h2 {
         font-size: 18px;
       }
@@ -356,8 +380,8 @@
         font-size: 20px;
       }
       .peopleIntro {
-       width: 96%;
-       font-size: 16px;
+        width: 96%;
+        font-size: 16px;
       }
     }
     .home__blog {
@@ -411,9 +435,14 @@
     .home__lastMessage {
       font-size: 16px;
     }
+    .homePrice {
+      .homePriceTitle {
+        font-size: 20px;
+      }
+    }
     .home__contact {
       .home__contact--title {
-        font-size:20px;
+        font-size: 20px;
       }
       .home__contact__container {
         .home__contact__map {

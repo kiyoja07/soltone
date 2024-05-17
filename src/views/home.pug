@@ -3,6 +3,7 @@ include mixins/mapBlock
 include mixins/kakaoBtn
 include mixins/blogBlock
 include mixins/startBtn
+include mixins/priceTable
 
 block content
     link(rel="preload" as="image" href="https://soltone.cdn.ntruss.com/images/hero_image.jpg")
@@ -99,6 +100,11 @@ block content
             p 솔톤을 통해 효율적인 세금 관리로
             p 내 자산과 사업을 성장시키세요!
             p 고객님을 뒤 따르는 세금, 세금을 앞지르는 솔톤
+        
+        .homePrice
+             h2.homePriceTitle.homeTitle 기장 보수
+             .tableWrapper
+                +priceTable
 
         .home__contact
             h2.home__contact--title 사무실 안내

@@ -1,0 +1,53 @@
+.priceTableContainer {
+  .table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    line-height: 22px;
+    .row {
+      display: table-row;
+      background: #f6f6f6;
+      &:nth-of-type(odd) {
+        background: #e9e9e9;
+      }
+      &.tableHeader {
+        font-weight: 900;
+        color: #ffffff;
+        //   background: #ea6153;
+        background: #2980b9;
+        //   background: $background-dark;
+      }
+      .cell {
+        padding: 8px 16px;
+        display: table-cell;
+      }
+    }
+  }
+  .tableNote {
+    margin: 2em auto 0 auto;
+    text-align: left;
+    padding: 0 20px;
+    opacity: 0.6;
+    .tableFootNote {
+      font-size: 12px;
+      line-height: 1.5;
+      color: $soltone-black;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .priceTableContainer {
+    .table {
+      table-layout: auto;
+      .cell {
+        padding: 4px 8px;
+      }
+    }
+    .tableNote {
+      padding: 0 10px;
+    }
+  }
+}

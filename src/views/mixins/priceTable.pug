@@ -1,0 +1,36 @@
+mixin priceTable()
+    .priceTableContainer
+        .table
+            .row.tableHeader
+                .cell 연매출
+                .cell 개인사업자
+                .cell 법인사업자
+            .row
+                .cell(data-title="연매출") 2억 미만
+                .cell(data-title="개인사업자") 8만원
+                .cell(data-title="법인사업자") 15만원
+            .row
+                .cell(data-title="연매출") 2억 이상 4억 미만
+                .cell(data-title="개인사업자") 10만원
+                .cell(data-title="법인사업자") 17만원
+            .row
+                .cell(data-title="연매출") 4억 이상 6억 미만
+                .cell(data-title="개인사업자") 12만원
+                .cell(data-title="법인사업자") 20만원
+            .row
+                .cell(data-title="연매출") 6억 이상 8억 미만
+                .cell(data-title="개인사업자") 14만원
+                .cell(data-title="법인사업자") 23만원
+            .row
+                .cell(data-title="연매출") 8억 이상 10억 미만
+                .cell(data-title="개인사업자") 16만원
+                .cell(data-title="법인사업자") 26만원
+            .row
+                .cell(data-title="연매출") 10억 이상
+                .cell(data-title="개인사업자") 별도 협의
+                .cell(data-title="법인사업자") 별도 협의
+        .tableNote
+            p.tableFootNote - 기장료에는 부가가치세 신고, 인건비 신고, 각종 증명서 발급 업무, 재산세 상담 업무가 포함되어 있습니다.
+            p.tableFootNote - 세무조정(종합소득세 신고/법인세 신고) 비용은 별도입니다.
+            p.tableFootNote - 업종의 특수성, 직원 현황 등에 따라 조정될 수 있습니다.
+            p.tableFootNote - 부가가치세(10%)는 별도입니다.
