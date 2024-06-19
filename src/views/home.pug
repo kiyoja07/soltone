@@ -7,6 +7,8 @@ include mixins/priceTable
 
 block content
     link(rel="preload" as="image" href="https://soltone.cdn.ntruss.com/images/hero_image.jpg")
+    .progress-container
+        .progress-bar#scrollBar
     .home-container
         .img__hero
             .img__hero--content
@@ -17,17 +19,6 @@ block content
                 ul
                     +kakaoBtn
             .img__hero--cover
-
-        //- .mainMessage-container
-        //-     .mainMessage__column.to-owner
-        //-             h3.mainMessage-title 대표님
-        //-             p.mainMessage-body 대표님은 사업에만 신경 쓰셔야 합니다. 세금은 세무전문가에 맡기시고 열심히 경영하세요. 주요 세무 이슈들, 당사의 주요 이슈들은 정기적으로 보고 해드립니다.
-        //-     .mainMessage__column.to-employee
-        //-             h3.mainMessage-title 담당자님!
-        //-             p.mainMessage-body 업무 실무자로서 담당자님이 어떤걸 요구하시는지, 어떤 부분을 충족하고 싶어하는지 다 알아요. 저는 세무대리인/세무위임자 역할을 다 해봤거든요.
-        //-     .mainMessage__column.to-people
-        //-             h3.mainMessage-title 고객님!
-        //-             p.mainMessage-body 요즘 세법, 많이 복잡 해졌습니다. 납세자님이 공부하여 터득한 세법 지식을 세무전문가 김덕화 세무사에 확인 받는 작업을 추천해드립니다.
         .home__people__container
             h3.people--title 김덕화 대표 세무사
             .peopleIntro 
@@ -67,34 +58,34 @@ block content
                         img(data-src="https://soltone.cdn.ntruss.com/images/book-S000211785891.webp" alt="세무사가 알려주는 창업 시 준비사항 책 표지").homeBookImg.lazyImg
 
 
-        .messageContainer
-            .messageContainerTitle
-                h3 사장님이시면, 고용증대 세액공제 받아가세요!
-                p 솔톤 고객님은 저희가 먼저 검토해드립니다 🙏
-            .messageMain
-                .message
-                    .messageTitle
-                        h4 직원 1명당 
-                        h4 최대 3,600만원 환급!
-                    .messageBody
-                        p 늘어난 인건비 부담을
-                        p 소득세/법인세 절세로 만회!
-                .message
-                    .messageTitle
-                        h4 환급액이 없어도
-                        h4 최대 10년간 이월 가능!
-                    .messageBody
-                        p 납부한 세금이 없어도
-                        p 10년 이내에 세금 납부 때 차감!
-                .message
-                    .messageTitle
-                        h4 최대 5년 이전 내역까지
-                        h4 3분 만에 환급 신청!
-                    .messageBody
-                        p 복잡한 과정 없이
-                        p 직원 수만 입력하면 신청 완료!
-            .messageBtn
-                +startBtn({btnTitle:"무료 세액 공제액 조회하러 가기", btnTarget:"https://taxrang.com/", openNewWindow: true})
+        //- .messageContainer
+        //-     .messageContainerTitle
+        //-         h3 사장님이시면, 고용증대 세액공제 받아가세요!
+        //-         p 솔톤 고객님은 저희가 먼저 검토해드립니다 🙏
+        //-     .messageMain
+        //-         .message
+        //-             .messageTitle
+        //-                 h4 직원 1명당 
+        //-                 h4 최대 3,600만원 환급!
+        //-             .messageBody
+        //-                 p 늘어난 인건비 부담을
+        //-                 p 소득세/법인세 절세로 만회!
+        //-         .message
+        //-             .messageTitle
+        //-                 h4 환급액이 없어도
+        //-                 h4 최대 10년간 이월 가능!
+        //-             .messageBody
+        //-                 p 납부한 세금이 없어도
+        //-                 p 10년 이내에 세금 납부 때 차감!
+        //-         .message
+        //-             .messageTitle
+        //-                 h4 최대 5년 이전 내역까지
+        //-                 h4 3분 만에 환급 신청!
+        //-             .messageBody
+        //-                 p 복잡한 과정 없이
+        //-                 p 직원 수만 입력하면 신청 완료!
+        //-     .messageBtn
+        //-         +startBtn({btnTitle:"무료 세액 공제액 조회하러 가기", btnTarget:"https://taxrang.com/", openNewWindow: true})
                 
         .home__lastMessage
             p 솔톤을 통해 효율적인 세금 관리로

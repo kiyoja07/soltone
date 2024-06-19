@@ -9,8 +9,10 @@
   box-shadow: none;
   cursor: pointer;
   text-shadow: none;
-  border-style: solid;
   color: $soltone-black;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
   .blogBlock__image {
     // width: 45vw;
     width: 100%;
