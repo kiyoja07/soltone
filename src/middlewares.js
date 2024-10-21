@@ -27,4 +27,4 @@ export const blogsMetaDescription =
 // VIP Page
 export const vipPageTitle = "VIP 재무리포트";
 export const vipPageDescription =
-  "사업과 개인 활동으로 발생하는 모든 자금 흐름을 통합 관리하는 서비스를 소개합니다.";
+  "사업과 개인 활동으로 발생하는 모든 자금 흐름을 통합 관리하는 솔톤 VIP 재무리포트.";
