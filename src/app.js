@@ -11,14 +11,15 @@ import { generateSitemap } from "./sitemap";
 import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
 import blogRouter from "./routers/blogRouter";
+import vipRouter from "./routers/vipRouter";
 import favicon from "serve-favicon";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const app = express();
 
 // const CookieStore = new MongoStore(session);
-
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
@@ -33,14 +34,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
 // const dbURI = process.env.PRODUCTION ? process.env.MONGO_URL_PROD : process.env.MONGO_URL;
 const dbURI = process.env.MONGO_URL_PROD;
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('✅ Connected to DB'))
-  .catch(err => console.log(err));
-
+mongoose
+  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("✅ Connected to DB"))
+  .catch((err) => console.log(err));
 
 const sessionStore = MongoStore.create({ mongoUrl: dbURI });
 
@@ -52,7 +51,6 @@ app.use(
     store: sessionStore,
   })
 );
-
 
 // app.use(
 //   session({
@@ -80,6 +78,7 @@ app.use(favicon(path.join(__dirname, "public/images", "favicon.ico")));
 
 app.use(routes.home, globalRouter);
 app.use(routes.blogs, blogRouter);
+app.use(routes.vip, vipRouter);
 app.get(routes.sitemap, generateSitemap);
 
 app.use(function (req, res, next) {

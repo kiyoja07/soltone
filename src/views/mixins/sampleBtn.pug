@@ -1,0 +1,3 @@
+mixin sampleBtn({btnTitle, btnTarget, openNewWindow})
+    button(type="submit" onclick=`window.open('${btnTarget}')`).sampleBtn
+        span=btnTitle

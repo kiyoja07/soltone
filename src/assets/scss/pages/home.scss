@@ -38,6 +38,9 @@
       margin: 3vh auto;
       width: 65vw;
     }
+    ul:nth-last-child(1) {
+      margin: 1.5em auto;
+    }
   }
   .img__hero {
     position: relative;
@@ -185,74 +188,6 @@
     }
   }
 
-  .messageContainer {
-    width: 100%;
-    max-width: 1600px;
-    margin: 4em auto;
-    .messageContainerTitle {
-      text-align: center;
-      h3 {
-        font-size: 28px;
-        box-sizing: border-box;
-        display: inline-block;
-        text-decoration: none;
-        font-weight: bold;
-        background-image: linear-gradient(transparent 65%, #a9ffd9 0%);
-        background-repeat: no-repeat;
-        background-size: 100% 300%;
-        background-position: 0% 70%;
-        transition: background-position 0.5s ease 0s;
-      }
-      h3:hover {
-        background-position: 0% 100%;
-      }
-      p {
-        margin: 2em auto 0 auto;
-        font-size: 16px;
-        color: $black;
-      }
-    }
-
-    .messageMain {
-      display: flex;
-      justify-content: center;
-      .message {
-        border: 2px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
-        padding: 1.77em;
-        margin: 2em;
-        width: 300px;
-        .messageTitle {
-          h4 {
-            font-size: 1.33em;
-            line-height: 1.33em;
-            box-sizing: border-box;
-            display: inline-block;
-            text-decoration: none;
-            font-weight: bold;
-          }
-        }
-        .messageBody {
-          margin: 1em 0 0 0;
-          p {
-            font-size: 1em;
-            line-height: 1.33em;
-            color: rgb(141, 141, 141);
-            margin-bottom: 0.2em;
-          }
-        }
-      }
-      .message:hover {
-        box-shadow: 0 34px 32px -33px rgba(0, 0, 0, 0.18);
-        transform: translate(0px, -3px);
-        background-color: rgba(245, 241, 237, 0.35);
-      }
-    }
-    .messageBtn {
-      margin: 30px auto;
-    }
-  }
   .home__lastMessage {
     width: 100%;
     background-color: $background-blue;
@@ -350,12 +285,16 @@
   .home-container {
     .img__hero--content {
       min-width: 200px;
+      width: 84vw;
       ul {
-        width: 80vw;
-      }
-
-      h1 h2 {
-        font-size: 18px;
+        width: 100%;
+        h1 {
+          font-size: 22px;
+        }
+        h2 {
+          font-size: 18px;
+          line-height: 1.5; // Adjust the vertical spacing between lines
+        }
       }
     }
     .home__contact {
@@ -407,31 +346,7 @@
         }
       }
     }
-    .messageContainer {
-      .messageContainerTitle {
-        h3 {
-          font-size: 20px;
-        }
-      }
-      .messageMain {
-        display: block;
-        margin: 0 auto;
-        .message {
-          margin: 2em auto;
-          width: 80%;
-          .messageTitle {
-            h4 {
-              font-size: 18px;
-            }
-          }
-          .messageBody {
-            p {
-              font-size: 16px;
-            }
-          }
-        }
-      }
-    }
+
     .home__lastMessage {
       font-size: 16px;
     }

@@ -1,8 +1,6 @@
 doctype html
 html(lang="ko")
     head
-        //- Blog의 주제에 meta 정보를 특화시킴
-
         //- Global site tag (gtag.js) - Google Analytics
         script(async src="https://www.googletagmanager.com/gtag/js?id=G-9SVY2KLBTZ")
         script.
@@ -14,29 +12,28 @@ html(lang="ko")
         //- Meta
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0")
-        //- meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
         meta(name="theme-color" content="#2e394d")
         meta(name="author" content="솔톤세무회계")
         meta(name="title" content=`${pageTitle} | ${siteName}`)
         meta(name="description" content=`${metaDescription}`)
-        meta(name="keywords" content= ` ${metaKeywords}, 여의도 세무사, 샛강 세무사, 영등포 세무사, 마포 세무사, 서울 세무사`)
-        
+        meta(name="keywords" content="VIP, 재무리포트, 재무관리, 사장님, CEO, 가계부, 손익계산서, 현금흐름표, 인건비 관리, 급여 대장, 세무사, 세금 컨설팅, 재테크")
 
         //- Robots
         meta(name="robots" content="index, follow")
 
         //- Search
+        meta(name="naver-site-verification" content="67d7497f8d51b8f09e78e7ac4d11a06db275e198")
         link(rel="canonical" href=`https://soltonetax.com${canonicalUrl}`)
 
         //- Open Graph protocol
-        meta(property="og:title" content=`${pageTitle} | ${siteName}`)
+        meta(property="og:title" content="솔톤 VIP 재무리포트")
         meta(property="og:type" content="website")
         meta(property="og:image" content=`${ogImageUrl}`)
-        meta(property="og:image:alt" content="내 손 안의 세무 파트너 솔톤")
+        meta(property="og:image:alt" content="솔톤 VIP 재무리포트")
         meta(property="og:description" content=`${metaDescription}`)
         meta(property="og:url" content=`https://soltonetax.com${canonicalUrl}`)
         meta(property="og:locale" content="ko_KR")
-        meta(property="og:site_name" content="솔톤세무회계")
+        meta(property="og:site_name" content="솔톤 VIP 재무리포트")
 
         //- Styles
         link(rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap")
@@ -45,8 +42,11 @@ html(lang="ko")
 
         //- Favicon & Title
         link(rel="shortcut icon" href="https://soltonetax.com/favicon.ico")
-        title #{pageTitle} : #{siteName}
-            
+        if canonicalUrl == "/"
+            title #{siteName}
+        else
+            title #{pageTitle} : #{siteName}
+        
     body
         include ../partials/header
         main

@@ -1,0 +1,78 @@
+extends layouts/vipMain
+include mixins/kakaoBtn
+include mixins/startBtn
+
+
+block content
+    .progress-container
+        .progress-bar#scrollBar
+    .home-container
+        .imgHeroVipHome
+            .img__hero--content
+                ul
+                    h1 솔톤 VIP 재무리포트
+                ul
+                    h2 사업과 개인 활동의 모든 자금 흐름을 한눈에 확인하세요
+                ul
+                    +startBtn({btnTitle:"리포트 샘플 보기", btnTarget: '/vip/sample', openNewWindow: true})
+        .customerContainer
+            .customerContainerTitle
+                h3 가계부와 사업 손익계산서가 통합되어 관리됩니다
+                //- p 사업과 개인 활동의 소득과 지출을 한눈에 확인하세요
+            .customerMain
+                .customer
+                    .customerTitle
+                        h3 손익계산서
+                    .customerBody
+                        p 매출과 비용이 발생한
+                        p 항목별로 그리고 거래처별로 분류합니다
+                .customer
+                    .customerTitle
+                        h3 현금흐름표
+                    .customerBody
+                        p 사업으로 인한 현금흐름과
+                        p 개인 생활로 인한 현금흐름을 분리합니다
+                .customer
+                    .customerTitle
+                        h3 인건비 관리
+                    .customerBody
+                        p 근로자자에게 지급한 급여와
+                        p 4대보험료와 퇴직적립금까지 관리합니다
+            .customerBtn
+                +startBtn({btnTitle:"리포트 샘플 보기", btnTarget: '/vip/sample', openNewWindow: true})
+        .messageContainer
+            .messageContainerTitle
+                h3 무료로 먼저 체험해보세요
+                p 사장님을 위한 VIP 재무리포트
+            .messageMain
+                .message
+                    .messageTitle
+                        h4 Standard
+                        h5 월 30만원
+                        h5(style="font-size: 0.8em") (2개월 무료)
+                        h5 월 1회 보고서 발송
+                    .messageBody
+                        p 손익계산서
+                        p 현금흐름표
+                .message
+                    .messageTitle
+                        h4 Premium
+                        h5 월 100만원
+                        h5(style="font-size: 0.8em") (1개월 무료)
+                        h5 주 1회 보고서 발송 & 기장
+                    .messageBody
+                        p.baseParagraph Standard의 모든 서비스 +
+                        p 인건비 관리
+                        p 세무 기장
+                .message
+                    .messageTitle
+                        h4 Enterprise
+                        h5 월 300만원
+                        h5(style="font-size: 0.8em") (1개월 무료)
+                        h5 주 5회 보고서 발송 & 기장
+                    .messageBody
+                        p.baseParagraph Premium의 모든 서비스 +
+                        p 예상 부가세 보고서
+                        p 미수금 관리
+            .messageBtn
+                +kakaoBtn

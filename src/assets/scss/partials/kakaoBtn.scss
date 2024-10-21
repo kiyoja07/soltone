@@ -1,13 +1,15 @@
 .social-login--kakao {
   font-size: 16px;
-  font-weight: 500;
+  line-height: 1.2;
+  font-weight: 600;
   color: #191919;
   width: 200px;
   height: 60px;
   margin: 0 auto;
   padding: 0;
   background-color: #fae100;
-  border-style: none;
+  /* border-style: none; */
+  border: 2px solid #fae100;
   border-radius: 8px;
   box-shadow: none;
   cursor: pointer;
@@ -18,15 +20,17 @@
 }
 
 .social-login--kakao:hover {
-  font-weight: 600;
+  font-weight: 800;
+  border: 2px solid #fff;
+
   // color: #fff;
   // background-color: $background-dark;
 }
 
-@media (max-width: 768px) {
-  .social-login--kakao {
-    font-size: 14px;
-    width: 160px;
-    height: 48px;
-  }
-}
+// @media (max-width: 768px) {
+//   .social-login--kakao {
+//     font-size: 14px;
+//     width: 160px;
+//     height: 48px;
+//   }
+// }

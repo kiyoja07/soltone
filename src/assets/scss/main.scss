@@ -24,7 +24,7 @@ main {
   border: none;
   outline: none;
   background-color: $background-dark;
-  color: #ffffff;
+  color: $white;
   cursor: pointer;
   padding: 12px;
   border-radius: 12px;
@@ -35,7 +35,6 @@ main {
 .topBtnBlock {
   display: block;
 }
-
 
 .progress-container {
   padding-top: $header-height;

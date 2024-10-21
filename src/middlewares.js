@@ -23,3 +23,8 @@ export const peopleMetaDescription =
 export const blogsPageTitle = "블로그";
 export const blogsMetaDescription =
   "세금과 관련된 다양하고 유용한 정보와 꿀팁들을 솔톤세무회계 김덕화 세무사가 쉽게 설명드립니다.";
+
+// VIP Page
+export const vipPageTitle = "VIP 재무리포트";
+export const vipPageDescription =
+  "사업과 개인 활동으로 발생하는 모든 자금 흐름을 통합 관리하는 서비스를 소개합니다.";

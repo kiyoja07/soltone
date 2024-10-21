@@ -8,6 +8,10 @@ const LOGIN = "/login";
 const BLOGS = "/blogs";
 const BLOG_DETAIL = "/:bid";
 
+// VIP
+const VIP = "/vip";
+const SAMPLE = "/sample";
+
 // Routes
 const routes = {
   home: HOME,
@@ -23,6 +27,8 @@ const routes = {
       return BLOG_DETAIL;
     }
   },
+  vip: VIP,
+  sample: SAMPLE,
 };
 
 export default routes;

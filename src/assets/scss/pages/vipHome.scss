@@ -1,0 +1,240 @@
+.home-container {
+  .imgHeroVipHome .img__hero--content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    z-index: 2;
+    text-align: center;
+  }
+  .img__hero--content {
+    ul {
+      font-weight: 600;
+      margin: 3vh auto;
+      width: 65vw;
+    }
+  }
+  .imgHeroVipHome {
+    position: relative;
+    background-image: url("https://soltone.cdn.ntruss.com/images/hero-img-vip.png");
+    height: 50vh;
+    background-size: cover;
+    // background-attachment: fixed;
+    // .img__hero--cover {
+    //   position: absolute;
+    //   height: 100%;
+    //   width: 100%;
+    //   background-color: rgba(0, 0, 0, 0.2);
+    //   z-index: 1;
+    // }
+  }
+  .customerContainer {
+    width: 100%;
+    max-width: 1600px;
+    margin: 4em auto;
+    .customerContainerTitle {
+      text-align: center;
+      h3 {
+        font-size: 28px;
+
+        box-sizing: border-box;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: bold;
+        background-image: linear-gradient(transparent 65%, #a9ffd9 0%);
+        background-repeat: no-repeat;
+        background-size: 100% 300%;
+        background-position: 0% 70%;
+        transition: background-position 0.5s ease 0s;
+      }
+      h3:hover {
+        background-position: 0% 100%;
+      }
+      p {
+        margin: 2em auto 0 auto;
+        font-size: 16px;
+        color: $black;
+      }
+    }
+
+    .customerMain {
+      display: block;
+      justify-content: center;
+      .customer {
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+        padding: 1.77em;
+        margin: 2.5em auto;
+        width: 480px;
+        .customerTitle {
+          h3 {
+            font-size: 1.33em;
+            line-height: 1.33em;
+            box-sizing: border-box;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+          }
+        }
+        .customerBody {
+          margin: 1em 0 0 0;
+          p {
+            font-size: 1em;
+            line-height: 1.33em;
+            color: rgb(141, 141, 141);
+            margin-bottom: 0.2em;
+          }
+        }
+      }
+      .customer:hover {
+        box-shadow: 0 34px 32px -33px rgba(0, 0, 0, 0.18);
+        transform: translate(0px, -3px);
+        background-color: rgba(245, 241, 237, 0.35);
+      }
+    }
+    .customerBtn {
+      margin: 30px auto;
+    }
+  }
+  .messageContainer {
+    width: 100%;
+    max-width: 1600px;
+    margin: 4em auto;
+    .messageContainerTitle {
+      text-align: center;
+      h3 {
+        font-size: 28px;
+        box-sizing: border-box;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: bold;
+        background-image: linear-gradient(transparent 65%, #a9ffd9 0%);
+        background-repeat: no-repeat;
+        background-size: 100% 300%;
+        background-position: 0% 70%;
+        transition: background-position 0.5s ease 0s;
+      }
+      h3:hover {
+        background-position: 0% 100%;
+      }
+      p {
+        margin: 2em auto 0 auto;
+        font-size: 16px;
+        color: $black;
+      }
+    }
+
+    .messageMain {
+      display: flex;
+      justify-content: center;
+      .message {
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+        padding: 1.77em;
+        margin: 2em;
+        width: 320px;
+        .messageTitle {
+          h4 {
+            font-size: 1.33em;
+            line-height: 1.33em;
+            box-sizing: border-box;
+            // display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 1em;
+          }
+          h5 {
+            font-size: 1.12em;
+            line-height: 1.33em;
+            box-sizing: border-box;
+            // display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+          }
+        }
+        .messageBody {
+          margin: 1em 0 0 0;
+          p {
+            font-size: 1em;
+            line-height: 1.33em;
+            color: rgb(141, 141, 141);
+            margin-bottom: 0.2em;
+          }
+          .baseParagraph {
+            margin-bottom: 0.8em;
+          }
+        }
+      }
+      .message:hover {
+        box-shadow: 0 34px 32px -33px rgba(0, 0, 0, 0.18);
+        transform: translate(0px, -3px);
+        background-color: rgba(245, 241, 237, 0.35);
+      }
+    }
+    .messageBtn {
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    .customerContainer {
+      .customerContainerTitle {
+        h3 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
+      .customerMain {
+        .customer {
+          margin: 2em auto;
+          width: 82vw;
+          .customerTitle {
+            h3 {
+              font-size: 18px;
+            }
+          }
+          .customerBody {
+            p {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .messageContainer {
+      .messageContainerTitle {
+        h3 {
+          font-size: 20px;
+        }
+      }
+      .messageMain {
+        display: block;
+        margin: 0 auto;
+        .message {
+          margin: 2em auto;
+          width: 80%;
+          .messageTitle {
+            h4 {
+              font-size: 18px;
+            }
+          }
+          .messageBody {
+            p {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

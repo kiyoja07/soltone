@@ -152,8 +152,3 @@ export const people = (req, res) => {
     res.redirect(routes.home);
   }
 };
-
-// Log In
-export const login = (req, res) => {
-  res.render("login", {});
-};
