@@ -14,7 +14,7 @@ html(lang="ko")
         meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0")
         meta(name="theme-color" content="#2e394d")
         meta(name="author" content="솔톤세무회계")
-        meta(name="title" content=`${pageTitle} | ${siteName}`)
+        meta(name="title" content="솔톤 VIP 재무리포트")
         meta(name="description" content=`${metaDescription}`)
         meta(name="keywords" content="VIP, 재무리포트, 재무관리, 사장님, CEO, 가계부, 손익계산서, 현금흐름표, 인건비 관리, 급여 대장, 세무사, 세금 컨설팅, 재테크")
 
@@ -22,7 +22,6 @@ html(lang="ko")
         meta(name="robots" content="index, follow")
 
         //- Search
-        meta(name="naver-site-verification" content="67d7497f8d51b8f09e78e7ac4d11a06db275e198")
         link(rel="canonical" href=`https://soltonetax.com${canonicalUrl}`)
 
         //- Open Graph protocol
@@ -42,13 +41,10 @@ html(lang="ko")
 
         //- Favicon & Title
         link(rel="shortcut icon" href="https://soltonetax.com/favicon.ico")
-        if canonicalUrl == "/"
-            title #{siteName}
-        else
-            title #{pageTitle} : #{siteName}
+        title 솔톤 VIP 재무리포트
         
     body
-        include ../partials/header
+        include ../partials/headerVip
         main
             block content
         include ../partials/footer

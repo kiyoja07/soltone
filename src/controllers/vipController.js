@@ -1,8 +1,4 @@
-import {
-  defaultOgImage,
-  vipPageDescription,
-  vipPageTitle,
-} from "../middlewares";
+import { vipOgImage, vipPageDescription, vipPageTitle } from "../middlewares";
 import routes from "../routes";
 
 export const vipHome = (req, res) => {
@@ -11,7 +7,7 @@ export const vipHome = (req, res) => {
       pageTitle: vipPageTitle,
       canonicalUrl: routes.vip,
       metaDescription: vipPageDescription,
-      ogImageUrl: defaultOgImage,
+      ogImageUrl: vipOgImage,
     });
   } catch (error) {
     console.log(`res.render("vip") error : ${error}`);
@@ -26,7 +22,7 @@ export const vipSample = (req, res) => {
       pageTitle: vipPageTitle,
       canonicalUrl: `${routes.vip}${routes.sample}`,
       metaDescription: vipPageDescription,
-      ogImageUrl: defaultOgImage,
+      ogImageUrl: vipOgImage,
     });
   } catch (error) {
     console.log(`res.render("vipSample") error : ${error}`);

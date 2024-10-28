@@ -1,0 +1,12 @@
+.iframe-container {
+  height: 100vh; /* Viewport height */
+  width: 100vw; /* Viewport width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+  }
+}
