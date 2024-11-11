@@ -1,7 +1,7 @@
 const mapContainer = document.getElementById("jsMap"); //지도를 담을 영역의 DOM 레퍼런스
 
 if (mapContainer) {
-  const coords = new kakao.maps.LatLng(37.51957, 126.93111);
+  const coords = new kakao.maps.LatLng(37.48400155226571, 127.12203157324717);
 
   const mapOption = {
     //지도를 생성할 때 필요한 기본 옵션
@@ -30,6 +30,20 @@ if (mapContainer) {
   const zoomControl = new kakao.maps.ZoomControl();
   map.addControl(zoomControl, kakao.maps.ControlPosition.TOPRIGHT);
 }
+
+var infoTitle = document.querySelectorAll(".mapMarker");
+infoTitle.forEach(function (e) {
+  var w = e.offsetWidth + 10;
+  var ml = w / 2;
+  // e.parentElement.style.top = "82px";
+  e.parentElement.style.top = "0px";
+  e.parentElement.style.left = "50%";
+  e.parentElement.style.marginLeft = -ml + "px";
+  e.parentElement.style.width = w + "px";
+  e.parentElement.previousSibling.style.display = "none";
+  e.parentElement.parentElement.style.border = "0px";
+  e.parentElement.parentElement.style.background = "unset";
+});
 
 // function makeMap() {
 //     const mapOption = { //지도를 생성할 때 필요한 기본 옵션

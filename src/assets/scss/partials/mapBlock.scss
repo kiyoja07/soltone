@@ -1,19 +1,44 @@
 .map {
-    margin: 0 3vw;
-    width: 350px;
-    height: 350px;
-    .mapMarker {
-      width: 148px;
-      text-align: center;
-      padding: 6px 0;
-      border-radius: 50px;
-      margin: 0 auto;
+  margin: 0 3vw;
+  width: 350px;
+  height: 350px;
+  .mapMarker {
+    width: 148px;
+    height: 32px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 1.2px;
+
+    padding: 10px 0;
+    border-radius: 25px;
+    margin: 0 auto;
+    // background: linear-gradient(135deg, #6e8efb, #a777e3);
+    background: linear-gradient(135deg, #2e394d, #6e8efb);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     }
   }
-  
-  @media (max-width: 768px) {
-    .map {
-      width: 72vw;
-      height: 36vh;
-    }
+  // .mapMarker {
+  //   width: 148px;
+  //   text-align: center;
+  //   padding: 6px 0;
+  //   border-radius: 50px;
+  //   margin: 0 auto;
+  // }
+}
+
+@media (max-width: 768px) {
+  .map {
+    width: 72vw;
+    height: 36vh;
   }
+}
