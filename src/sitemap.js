@@ -1,5 +1,5 @@
 import { SitemapStream, streamToPromise } from "sitemap";
-import { createGzip } from "zlib";
+const { createGzip } = require("node:zlib");
 import { Readable } from "stream";
 import Blog from "./models/Blog";
 
